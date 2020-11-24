@@ -3,36 +3,36 @@ import { hydrate } from 'react-dom';
 
 
 export const Page = (props) => {
-    const { hatHtml } = props;
+	const { hatHtml } = props;
 
-    return (
-        <div>
-            <div id="hat_fragment" dangerouslySetInnerHTML={hatHtml ? { __html: hatHtml } : undefined}>
-            </div>
-            
-            <h1>District magic</h1>
+	return (
+		<div>
+			<div id="hat_fragment" dangerouslySetInnerHTML={hatHtml ? { __html: hatHtml } : undefined}>
+			</div>
 
-            <div style={{ backgroundColor: 'green', color: 'white', }}>
-                Wish you were here
+			<h1>District magic</h1>
+
+			<div style={{ backgroundColor: 'green', color: 'white', }}>
+				Wish you were here
             </div>
-        </div>
-    )
+		</div>
+	)
 }
 
 const ready = () => {
-    const fragmentContainer = document.getElementById('hat_fragment');
+	const fragmentContainer = document.getElementById('hat_fragment');
 
-    if (fragmentContainer) {
-        hydrate(
-            (<Page />), 
-            fragmentContainer
-        );
-    }
+	if (fragmentContainer) {
+		hydrate(
+			(<Page />),
+			fragmentContainer
+		);
+	}
 }
 
 if (typeof window !== 'undefined') {
-    document.addEventListener("DOMContentLoaded", ready);
-} 
+	document.addEventListener("DOMContentLoaded", ready);
+}
 
 export default Page;
 
