@@ -4,19 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build-composer": "rimraf dist/composer/* && webpack -c src/client/composer/webpack.config.js",
-    "build-hat": "rimraf dist/hat/* && webpack -c src/client/hat/webpack.config.js",
-    "build": "concurrently 'yarn build-composer' 'yarn build-hat'",
+    "build-composer": "rimraf dist/composer/* && webpack -c src/client/composer/webpack.config.dll.js && webpack -c src/client/composer/webpack.config.js",
+    "build-hat": "rimraf dist/hat/* && webpack -c src/client/hat/webpack.config.dll.js && webpack -c src/client/hat/webpack.config.js",
+    "build": "yarn build-hat && yarn build-composer",
     "serve-static": "node src/server/static",
     "serve-composer": "node src/server/composer",
     "serve-hat": "node src/server/hat",
     "serve": "concurrently 'yarn serve-static' 'yarn serve-composer' 'yarn serve-hat'",
-	"test": "echo \"Error: no test specified\" && exit 1",
-	"start": "yarn build && yarn serve"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "yarn build && yarn serve"
   },
   "author": "tolstoguzov <tolstoguzov@tutu.ru>",
   "license": "ISC",
   "dependencies": {
+    "@tutu/order": "^3.27.2",
     "axios": "^0.21.0",
     "concurrently": "^5.3.0",
     "express": "^4.17.1",

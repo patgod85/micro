@@ -1,14 +1,16 @@
+const webpack = require('webpack');
 const path = require('path');
 
-const {
-	SharedLibraryWebpackPlugin,
-} = require('@tinkoff/shared-library-webpack-plugin');
+// const {
+// 	SharedLibraryWebpackPlugin,
+// } = require('@tinkoff/shared-library-webpack-plugin');
 
 var entries = {
 	index: path.join(__dirname, './index.jsx'),
 };
 
-module.exports = {
+
+const clientConfig = {
 	entry: entries,
 	devtool: 'source-map',
 	output: {
@@ -32,12 +34,18 @@ module.exports = {
 		]
 	},
 	plugins: [
-		new SharedLibraryWebpackPlugin({
-			namespace: '__shared__',
-			libs: [
-				{ name: 'react', chunkName: 'react.js', pattern: "react" },
-				{ name: 'react-dom', chunkName: 'react-dom.js', pattern: "react-dom" },
-			],
+		// new SharedLibraryWebpackPlugin({
+		// 	namespace: '__shared__',
+		// 	libs: [
+		// 		{ name: 'react', chunkName: 'react.js', pattern: "react" },
+		// 		{ name: 'react-dom', chunkName: 'react-dom.js', pattern: "react-dom" },
+		// 	],
+		// }),
+		new webpack.DllReferencePlugin({
+			context: '.',
+			manifest: require('../../../dist/hat/vendor-manifest.json'),
 		}),
 	],
 }
+
+module.exports = [clientConfig];

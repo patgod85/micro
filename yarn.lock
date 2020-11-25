@@ -927,7 +927,7 @@
     pirates "^4.0.0"
     source-map-support "^0.5.16"
 
-"@babel/runtime@^7.8.4":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.3.1", "@babel/runtime@^7.8.3", "@babel/runtime@^7.8.4":
   version "7.12.5"
   resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/@babel/runtime/-/runtime-7.12.5.tgz#410e7e487441e1b360c29be715d870d9b985882e"
   integrity sha1-QQ5+SHRB4bNgwpvnFdhw2bmFiC4=
@@ -967,6 +967,18 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
+"@emotion/is-prop-valid@^0.7.3":
+  version "0.7.3"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/@emotion/is-prop-valid/-/is-prop-valid-0.7.3.tgz#a6bf4fa5387cbba59d44e698a4680f481a8da6cc"
+  integrity sha1-pr9PpTh8u6WdROaYpGgPSBqNpsw=
+  dependencies:
+    "@emotion/memoize" "0.7.1"
+
+"@emotion/memoize@0.7.1":
+  version "0.7.1"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/@emotion/memoize/-/memoize-0.7.1.tgz#e93c13942592cf5ef01aa8297444dc192beee52f"
+  integrity sha1-6TwTlCWSz17wGqgpdETcGSvu5S8=
+
 "@tinkoff/shared-library-webpack-plugin@^1.0.0":
   version "1.0.0"
   resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/@tinkoff/shared-library-webpack-plugin/-/shared-library-webpack-plugin-1.0.0.tgz#20031b7008cc78a64c235504bdc645b524773800"
@@ -975,6 +987,97 @@
     jscodeshift "^0.9.0"
     lodash "^4.17.15"
     uuid "^8.1.0"
+
+"@tutu-base/handle-click-outside@^1.0.1":
+  version "1.0.1"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/@tutu-base%2fhandle-click-outside/-/handle-click-outside-1.0.1.tgz#f2ba0a6e7b82b516ce776f3f8f5fe8e058ed6fdb"
+  integrity sha1-8roKbnuCtRbOd28/j1/o4Fjtb9s=
+  dependencies:
+    "@tutu-hoc/handle-click-outside" "^2.0.2"
+    prop-types "^15.5.8"
+
+"@tutu-base/popup@^1.0.9":
+  version "1.0.9"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/@tutu-base%2fpopup/-/popup-1.0.9.tgz#42ff3567ac884907e7121dc2b1f7affc55c588c5"
+  integrity sha1-Qv81Z6yISQfnEh3Csfev/FXFiMU=
+  dependencies:
+    "@tutu-base/handle-click-outside" "^1.0.1"
+    "@tutu-hoc/handle-click-outside" "^2.0.2"
+    "@tutu-hoc/handle-key-press" "^2.0.2"
+    prop-types "^15.5.8"
+    ramda "^0.23.0"
+    react-css-themr "^2.0.0"
+
+"@tutu-hoc/handle-click-outside@^2.0.2":
+  version "2.1.3"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/@tutu-hoc%2fhandle-click-outside/-/handle-click-outside-2.1.3.tgz#b2455b0456ebe827810ce775dad6da78cd42abf9"
+  integrity sha1-skVbBFbr6CeBDOd12tbaeM1Cq/k=
+  dependencies:
+    "@tutu-utils/browser-detect" "^0.1.1"
+    tslib "^1.9.3"
+
+"@tutu-hoc/handle-history-back@^2.2.1":
+  version "2.2.1"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/@tutu-hoc/handle-history-back/-/@tutu-hoc/handle-history-back-2.2.1.tgz#bcabee834536104e224f3d72d11995a86ac86edd"
+  integrity sha1-vKvug0U2EE4iTz1y0RmVqGrIbt0=
+  dependencies:
+    "@tutu-base/popup" "^1.0.9"
+    "@tutu-utils/browser-detect" "^0.1.1"
+    history "^4.7.2"
+    tslib "^1.9.3"
+
+"@tutu-hoc/handle-key-press@^2.0.2":
+  version "2.0.2"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/@tutu-hoc%2fhandle-key-press/-/handle-key-press-2.0.2.tgz#25b5a02af1ee4e1c854d606331e9b54049d2188d"
+  integrity sha1-JbWgKvHuThyFTWBjMem1QEnSGI0=
+  dependencies:
+    prop-types "^15.5.8"
+
+"@tutu-utils/browser-detect@^0.1.1":
+  version "0.1.1"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/@tutu-utils%2fbrowser-detect/-/browser-detect-0.1.1.tgz#cbe0faa24c68ecd5027706dd34b93c8871de16ce"
+  integrity sha1-y+D6okxo7NUCdwbdNLk8iHHeFs4=
+
+"@tutu/autotest@^1.2.0":
+  version "1.3.0"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/@tutu/autotest/-/@tutu/autotest-1.3.0.tgz#b35c7c6ad99aed41123649e6f1a39e9884ea57f8"
+  integrity sha1-s1x8atma7UESNknm8aOemITqV/g=
+
+"@tutu/order-color-helpers@^0.2.1":
+  version "0.2.1"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/@tutu/order-color-helpers/-/@tutu/order-color-helpers-0.2.1.tgz#34b65df471ecdc2cf895960c9e2972aa01701dfe"
+  integrity sha1-NLZd9HHs3Cz4lZYMnilyqgFwHf4=
+
+"@tutu/order-theme@^5.5.0":
+  version "5.5.2"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/@tutu/order-theme/-/@tutu/order-theme-5.5.2.tgz#c6573691e87dddfc4f280f4d5338339455c87fc9"
+  integrity sha1-xlc2keh93fxPKA9NUzgzlFXIf8k=
+  dependencies:
+    "@tutu/order-color-helpers" "^0.2.1"
+    tslib "^1.11.1"
+
+"@tutu/order@^3.27.2":
+  version "3.27.2"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/@tutu/order/-/@tutu/order-3.27.2.tgz#d7176e0e30c1e61d4c1d50092801cb743752ba0f"
+  integrity sha1-1xduDjDB5h1MHVAJKAHLdDdSug8=
+  dependencies:
+    "@tutu-hoc/handle-history-back" "^2.2.1"
+    "@tutu-utils/browser-detect" "^0.1.1"
+    "@tutu/autotest" "^1.2.0"
+    "@tutu/order-color-helpers" "^0.2.1"
+    "@tutu/order-theme" "^5.5.0"
+    classnames "^2.2.6"
+    deepmerge "^4.0.0"
+    jss "^10.0.0"
+    jss-preset-default "^10.0.0"
+    react-collapse "^5.0.1"
+    react-day-picker "7.3.0"
+    react-input-mask "^2.0.4"
+    react-jss "^10.0.0-alpha.6"
+    react-popper "^1.3.6"
+    react-swipeable "^5.5.1"
+    react-window "^1.8.5"
+    tslib "^1.10.0"
 
 "@types/json-schema@^7.0.5":
   version "7.0.6"
@@ -1657,6 +1760,11 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
+classnames@^2.2.6:
+  version "2.2.6"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
+  integrity sha1-Q5Nb/90pHzJtrQogUwmzjQD2UM4=
+
 cliui@^5.0.0:
   version "5.0.0"
   resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/cliui/-/cliui-5.0.0.tgz#deefcfdb2e800784aa34f46fa08e06851c7bbbc5"
@@ -1856,6 +1964,14 @@ create-hmac@^1.1.0, create-hmac@^1.1.4, create-hmac@^1.1.7:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
+create-react-context@^0.3.0:
+  version "0.3.0"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/create-react-context/-/create-react-context-0.3.0.tgz#546dede9dc422def0d3fc2fe03afe0bc0f4f7d8c"
+  integrity sha1-VG3t6dxCLe8NP8L+A6/gvA9PfYw=
+  dependencies:
+    gud "^1.0.0"
+    warning "^4.0.3"
+
 cross-spawn@^7.0.0:
   version "7.0.3"
   resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/cross-spawn/-/cross-spawn-7.0.3.tgz#f73a85b9d5d41d045551c177e2882d4ac85728a6"
@@ -1881,6 +1997,28 @@ crypto-browserify@^3.11.0:
     public-encrypt "^4.0.0"
     randombytes "^2.0.0"
     randomfill "^1.0.3"
+
+css-jss@10.5.0:
+  version "10.5.0"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/css-jss/-/css-jss-10.5.0.tgz#0e87aefb07ec06673aab452a4285eed23ccc42da"
+  integrity sha1-Doeu+wfsBmc6q0UqQoXu0jzMQto=
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    jss "10.5.0"
+    jss-preset-default "10.5.0"
+
+css-vendor@^2.0.8:
+  version "2.0.8"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/css-vendor/-/css-vendor-2.0.8.tgz#e47f91d3bd3117d49180a3c935e62e3d9f7f449d"
+  integrity sha1-5H+R070xF9SRgKPJNeYuPZ9/RJ0=
+  dependencies:
+    "@babel/runtime" "^7.8.3"
+    is-in-browser "^1.0.2"
+
+csstype@^3.0.2:
+  version "3.0.5"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/csstype/-/csstype-3.0.5.tgz#7fdec6a28a67ae18647c51668a9ff95bb2fa7bb8"
+  integrity sha1-f97GoopnrhhkfFFmip/5W7L6e7g=
 
 cyclist@^1.0.1:
   version "1.0.1"
@@ -1916,10 +2054,27 @@ decode-uri-component@^0.2.0:
   resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/decode-uri-component/-/decode-uri-component-0.2.0.tgz#eb3913333458775cb84cd1a1fae062106bb87545"
   integrity sha1-6zkTMzRYd1y4TNGh+uBiEGu4dUU=
 
+deep-equal@^1.1.1:
+  version "1.1.1"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/deep-equal/-/deep-equal-1.1.1.tgz#b5c98c942ceffaf7cb051e24e1434a25a2e6076a"
+  integrity sha1-tcmMlCzv+vfLBR4k4UNKJaLmB2o=
+  dependencies:
+    is-arguments "^1.0.4"
+    is-date-object "^1.0.1"
+    is-regex "^1.0.4"
+    object-is "^1.0.1"
+    object-keys "^1.1.1"
+    regexp.prototype.flags "^1.2.0"
+
 deep-extend@~0.6.0:
   version "0.6.0"
   resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/deep-extend/-/deep-extend-0.6.0.tgz#c4fa7c95404a17a9c3e8ca7e1537312b736330ac"
   integrity sha1-xPp8lUBKF6nD6Mp+FTcxK3NjMKw=
+
+deepmerge@^4.0.0:
+  version "4.2.2"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/deepmerge/-/deepmerge-4.2.2.tgz#44d2ea3679b8f4d4ffba33f03d865fc1e7bf4955"
+  integrity sha1-RNLqNnm49NT/ujPwPYZfwee/SVU=
 
 define-properties@^1.1.3:
   version "1.1.3"
@@ -2071,6 +2226,50 @@ error-ex@^1.3.1:
   integrity sha1-tKxAZIEH/c3PriQvQovqihTU8b8=
   dependencies:
     is-arrayish "^0.2.1"
+
+es-abstract@^1.17.0-next.1:
+  version "1.17.7"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/es-abstract/-/es-abstract-1.17.7.tgz#a4de61b2f66989fc7421676c1cb9787573ace54c"
+  integrity sha1-pN5hsvZpifx0IWdsHLl4dXOs5Uw=
+  dependencies:
+    es-to-primitive "^1.2.1"
+    function-bind "^1.1.1"
+    has "^1.0.3"
+    has-symbols "^1.0.1"
+    is-callable "^1.2.2"
+    is-regex "^1.1.1"
+    object-inspect "^1.8.0"
+    object-keys "^1.1.1"
+    object.assign "^4.1.1"
+    string.prototype.trimend "^1.0.1"
+    string.prototype.trimstart "^1.0.1"
+
+es-abstract@^1.18.0-next.1:
+  version "1.18.0-next.1"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/es-abstract/-/es-abstract-1.18.0-next.1.tgz#6e3a0a4bda717e5023ab3b8e90bec36108d22c68"
+  integrity sha1-bjoKS9pxflAjqzuOkL7DYQjSLGg=
+  dependencies:
+    es-to-primitive "^1.2.1"
+    function-bind "^1.1.1"
+    has "^1.0.3"
+    has-symbols "^1.0.1"
+    is-callable "^1.2.2"
+    is-negative-zero "^2.0.0"
+    is-regex "^1.1.1"
+    object-inspect "^1.8.0"
+    object-keys "^1.1.1"
+    object.assign "^4.1.1"
+    string.prototype.trimend "^1.0.1"
+    string.prototype.trimstart "^1.0.1"
+
+es-to-primitive@^1.2.1:
+  version "1.2.1"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/es-to-primitive/-/es-to-primitive-1.2.1.tgz#e55cd4c9cdc188bcefb03b366c736323fc5c898a"
+  integrity sha1-5VzUyc3BiLzvsDs2bHNjI/xciYo=
+  dependencies:
+    is-callable "^1.1.4"
+    is-date-object "^1.0.1"
+    is-symbol "^1.0.2"
 
 escalade@^3.1.1:
   version "3.1.1"
@@ -2456,6 +2655,11 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2:
   resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/graceful-fs/-/graceful-fs-4.2.4.tgz#2256bde14d3632958c465ebc96dc467ca07a29fb"
   integrity sha1-Ila94U02MpWMRl68ltxGfKB6Kfs=
 
+gud@^1.0.0:
+  version "1.0.0"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/gud/-/gud-1.0.0.tgz#a489581b17e6a70beca9abe3ae57de7a499852c0"
+  integrity sha1-pIlYGxfmpwvsqavjrlfeekmYUsA=
+
 has-flag@^3.0.0:
   version "3.0.0"
   resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/has-flag/-/has-flag-3.0.0.tgz#b5d454dc2199ae225699f3467e5a07f3b955bafd"
@@ -2521,6 +2725,18 @@ hash.js@^1.0.0, hash.js@^1.0.3:
     inherits "^2.0.3"
     minimalistic-assert "^1.0.1"
 
+history@^4.7.2:
+  version "4.10.1"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/history/-/history-4.10.1.tgz#33371a65e3a83b267434e2b3f3b1b4c58aad4cf3"
+  integrity sha1-MzcaZeOoOyZ0NOKz87G0xYqtTPM=
+  dependencies:
+    "@babel/runtime" "^7.1.2"
+    loose-envify "^1.2.0"
+    resolve-pathname "^3.0.0"
+    tiny-invariant "^1.0.2"
+    tiny-warning "^1.0.0"
+    value-equal "^1.0.1"
+
 hmac-drbg@^1.0.0:
   version "1.0.1"
   resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/hmac-drbg/-/hmac-drbg-1.0.1.tgz#d2745701025a6c775a6c545793ed502fc0c649a1"
@@ -2529,6 +2745,18 @@ hmac-drbg@^1.0.0:
     hash.js "^1.0.3"
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.1"
+
+hoist-non-react-statics@^1.2.0:
+  version "1.2.0"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/hoist-non-react-statics/-/hoist-non-react-statics-1.2.0.tgz#aa448cf0986d55cc40773b17174b7dd066cb7cfb"
+  integrity sha1-qkSM8JhtVcxAdzsXF0t90GbLfPs=
+
+hoist-non-react-statics@^3.2.0, hoist-non-react-statics@^3.3.0:
+  version "3.3.2"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz#ece0acaf71d62c2969c2ec59feff42a4b1a85b45"
+  integrity sha1-7OCsr3HWLClpwuxZ/v9CpLGoW0U=
+  dependencies:
+    react-is "^16.7.0"
 
 hosted-git-info@^2.1.4:
   version "2.8.8"
@@ -2567,6 +2795,11 @@ human-signals@^1.1.1:
   resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/human-signals/-/human-signals-1.1.1.tgz#c5b1cd14f50aeae09ab6c59fe63ba3395fe4dfa3"
   integrity sha1-xbHNFPUK6uCatsWf5jujOV/k36M=
 
+hyphenate-style-name@^1.0.3:
+  version "1.0.4"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/hyphenate-style-name/-/hyphenate-style-name-1.0.4.tgz#691879af8e220aea5750e8827db4ef62a54e361d"
+  integrity sha1-aRh5r44iCupXUOiCfbTvYqVONh0=
+
 iconv-lite@0.4.24:
   version "0.4.24"
   resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/iconv-lite/-/iconv-lite-0.4.24.tgz#2022b4b25fbddc21d2f524974a474aafe733908b"
@@ -2596,6 +2829,13 @@ imurmurhash@^0.1.4:
   version "0.1.4"
   resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/imurmurhash/-/imurmurhash-0.1.4.tgz#9218b9b2b928a238b13dc4fb6b6d576f231453ea"
   integrity sha1-khi5srkoojixPcT7a21XbyMUU+o=
+
+indefinite-observable@^2.0.1:
+  version "2.0.1"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/indefinite-observable/-/indefinite-observable-2.0.1.tgz#574af29bfbc17eb5947793797bddc94c9d859400"
+  integrity sha1-V0rym/vBfrWUd5N5e93JTJ2FlAA=
+  dependencies:
+    symbol-observable "1.2.0"
 
 infer-owner@^1.0.3:
   version "1.0.4"
@@ -2630,6 +2870,13 @@ interpret@^2.2.0:
   resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/interpret/-/interpret-2.2.0.tgz#1a78a0b5965c40a5416d007ad6f50ad27c417df9"
   integrity sha1-GnigtZZcQKVBbQB61vUK0nxBffk=
 
+invariant@^2.2.1, invariant@^2.2.4:
+  version "2.2.4"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
+  integrity sha1-YQ88ksk1nOHbYW5TgAjSP/NRWOY=
+  dependencies:
+    loose-envify "^1.0.0"
+
 ipaddr.js@1.9.1:
   version "1.9.1"
   resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/ipaddr.js/-/ipaddr.js-1.9.1.tgz#bff38543eeb8984825079ff3a2a8e6cbd46781b3"
@@ -2648,6 +2895,11 @@ is-accessor-descriptor@^1.0.0:
   integrity sha1-FpwvbT3x+ZJhgHI2XJsOofaHhlY=
   dependencies:
     kind-of "^6.0.0"
+
+is-arguments@^1.0.4:
+  version "1.0.4"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/is-arguments/-/is-arguments-1.0.4.tgz#3faf966c7cba0ff437fb31f6250082fcf0448cf3"
+  integrity sha1-P6+WbHy6D/Q3+zH2JQCC/PBEjPM=
 
 is-arrayish@^0.2.1:
   version "0.2.1"
@@ -2673,6 +2925,11 @@ is-buffer@^1.1.5:
   resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/is-buffer/-/is-buffer-1.1.6.tgz#efaa2ea9daa0d7ab2ea13a97b2b8ad51fefbe8be"
   integrity sha1-76ouqdqg16suoTqXsritUf776L4=
 
+is-callable@^1.1.4, is-callable@^1.2.2:
+  version "1.2.2"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/is-callable/-/is-callable-1.2.2.tgz#c7c6715cd22d4ddb48d3e19970223aceabb080d9"
+  integrity sha1-x8ZxXNItTdtI0+GZcCI6zquwgNk=
+
 is-core-module@^2.1.0:
   version "2.1.0"
   resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/is-core-module/-/is-core-module-2.1.0.tgz#a4cc031d9b1aca63eecbd18a650e13cb4eeab946"
@@ -2693,6 +2950,11 @@ is-data-descriptor@^1.0.0:
   integrity sha1-2Eh2Mh0Oet0DmQQGq7u9NrqSaMc=
   dependencies:
     kind-of "^6.0.0"
+
+is-date-object@^1.0.1:
+  version "1.0.2"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/is-date-object/-/is-date-object-1.0.2.tgz#bda736f2cd8fd06d32844e7743bfa7494c3bfd7e"
+  integrity sha1-vac28s2P0G0yhE53Q7+nSUw7/X4=
 
 is-descriptor@^0.1.0:
   version "0.1.6"
@@ -2748,6 +3010,16 @@ is-glob@^4.0.0, is-glob@^4.0.1, is-glob@~4.0.1:
   dependencies:
     is-extglob "^2.1.1"
 
+is-in-browser@^1.0.2, is-in-browser@^1.1.3:
+  version "1.1.3"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/is-in-browser/-/is-in-browser-1.1.3.tgz#56ff4db683a078c6082eb95dad7dc62e1d04f835"
+  integrity sha1-Vv9NtoOgeMYILrldrX3GLh0E+DU=
+
+is-negative-zero@^2.0.0:
+  version "2.0.0"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/is-negative-zero/-/is-negative-zero-2.0.0.tgz#9553b121b0fac28869da9ed459e20c7543788461"
+  integrity sha1-lVOxIbD6wohp2p7UWeIMdUN4hGE=
+
 is-number@^3.0.0:
   version "3.0.0"
   resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/is-number/-/is-number-3.0.0.tgz#24fd6201a4782cf50561c810276afc7d12d71195"
@@ -2767,10 +3039,24 @@ is-plain-object@^2.0.3, is-plain-object@^2.0.4:
   dependencies:
     isobject "^3.0.1"
 
+is-regex@^1.0.4, is-regex@^1.1.1:
+  version "1.1.1"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/is-regex/-/is-regex-1.1.1.tgz#c6f98aacc546f6cec5468a07b7b153ab564a57b9"
+  integrity sha1-xvmKrMVG9s7FRooHt7FTq1ZKV7k=
+  dependencies:
+    has-symbols "^1.0.1"
+
 is-stream@^2.0.0:
   version "2.0.0"
   resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/is-stream/-/is-stream-2.0.0.tgz#bde9c32680d6fae04129d6ac9d921ce7815f78e3"
   integrity sha1-venDJoDW+uBBKdasnZIc54FfeOM=
+
+is-symbol@^1.0.2:
+  version "1.0.3"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/is-symbol/-/is-symbol-1.0.3.tgz#38e1014b9e6329be0de9d24a414fd7441ec61937"
+  integrity sha1-OOEBS55jKb4N6dJKQU/XRB7GGTc=
+  dependencies:
+    has-symbols "^1.0.1"
 
 is-windows@^1.0.2:
   version "1.0.2"
@@ -2868,6 +3154,141 @@ json5@^2.1.2:
   dependencies:
     minimist "^1.2.5"
 
+jss-plugin-camel-case@10.5.0:
+  version "10.5.0"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/jss-plugin-camel-case/-/jss-plugin-camel-case-10.5.0.tgz#4b0a9c85e65e5eb72cbfba59373686c604d88f72"
+  integrity sha1-SwqcheZeXrcsv7pZNzaGxgTYj3I=
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    hyphenate-style-name "^1.0.3"
+    jss "10.5.0"
+
+jss-plugin-compose@10.5.0:
+  version "10.5.0"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/jss-plugin-compose/-/jss-plugin-compose-10.5.0.tgz#c33fb1318570833b1020f3c1d1a64212e4aaa281"
+  integrity sha1-wz+xMYVwgzsQIPPB0aZCEuSqooE=
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    jss "10.5.0"
+    tiny-warning "^1.0.2"
+
+jss-plugin-default-unit@10.5.0:
+  version "10.5.0"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/jss-plugin-default-unit/-/jss-plugin-default-unit-10.5.0.tgz#e9f2e89741b0118ba15d52b4c13bda2b27262373"
+  integrity sha1-6fLol0GwEYuhXVK0wTvaKycmI3M=
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    jss "10.5.0"
+
+jss-plugin-expand@10.5.0:
+  version "10.5.0"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/jss-plugin-expand/-/jss-plugin-expand-10.5.0.tgz#3213c359632422434951c142029f196dc1a0298a"
+  integrity sha1-MhPDWWMkIkNJUcFCAp8ZbcGgKYo=
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    jss "10.5.0"
+
+jss-plugin-extend@10.5.0:
+  version "10.5.0"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/jss-plugin-extend/-/jss-plugin-extend-10.5.0.tgz#6ad827917dec17c11835f8002e8f7a1a29370e90"
+  integrity sha1-atgnkX3sF8EYNfgALo96Gik3DpA=
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    jss "10.5.0"
+    tiny-warning "^1.0.2"
+
+jss-plugin-global@10.5.0:
+  version "10.5.0"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/jss-plugin-global/-/jss-plugin-global-10.5.0.tgz#eb357ccd35cb4894277fb2117a78d1e498668ad6"
+  integrity sha1-6zV8zTXLSJQnf7IRenjR5JhmitY=
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    jss "10.5.0"
+
+jss-plugin-nested@10.5.0:
+  version "10.5.0"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/jss-plugin-nested/-/jss-plugin-nested-10.5.0.tgz#790c506432a23a63c71ceb5044e2ac85f0958702"
+  integrity sha1-eQxQZDKiOmPHHOtQROKshfCVhwI=
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    jss "10.5.0"
+    tiny-warning "^1.0.2"
+
+jss-plugin-props-sort@10.5.0:
+  version "10.5.0"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/jss-plugin-props-sort/-/jss-plugin-props-sort-10.5.0.tgz#5bcc3bd8e68cd3e2dafb47d67db28fd5a4fcf102"
+  integrity sha1-W8w72OaM0+La+0fWfbKP1aT88QI=
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    jss "10.5.0"
+
+jss-plugin-rule-value-function@10.5.0:
+  version "10.5.0"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/jss-plugin-rule-value-function/-/jss-plugin-rule-value-function-10.5.0.tgz#60ee8240dfe60418e1ba4729adee893cbe9be7a3"
+  integrity sha1-YO6CQN/mBBjhukcpre6JPL6b56M=
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    jss "10.5.0"
+    tiny-warning "^1.0.2"
+
+jss-plugin-rule-value-observable@10.5.0:
+  version "10.5.0"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/jss-plugin-rule-value-observable/-/jss-plugin-rule-value-observable-10.5.0.tgz#59d11ba49ba9af6a2f0bc4ebbbeb39663ac8ea71"
+  integrity sha1-WdEbpJupr2ovC8Tru+s5ZjrI6nE=
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    jss "10.5.0"
+    symbol-observable "^1.2.0"
+
+jss-plugin-template@10.5.0:
+  version "10.5.0"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/jss-plugin-template/-/jss-plugin-template-10.5.0.tgz#9e3d06affa15d26eb499d9091f70077501034c3b"
+  integrity sha1-nj0Gr/oV0m60mdkJH3AHdQEDTDs=
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    jss "10.5.0"
+    tiny-warning "^1.0.2"
+
+jss-plugin-vendor-prefixer@10.5.0:
+  version "10.5.0"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/jss-plugin-vendor-prefixer/-/jss-plugin-vendor-prefixer-10.5.0.tgz#01f04cfff31f43f153f5d71972f5800b10a2eb84"
+  integrity sha1-AfBM//MfQ/FT9dcZcvWACxCi64Q=
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    css-vendor "^2.0.8"
+    jss "10.5.0"
+
+jss-preset-default@10.5.0, jss-preset-default@^10.0.0:
+  version "10.5.0"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/jss-preset-default/-/jss-preset-default-10.5.0.tgz#c94086aaa03afdef7c55895279782b7f2b1b588d"
+  integrity sha1-yUCGqqA6/e98VYlSeXgrfysbWI0=
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    jss "10.5.0"
+    jss-plugin-camel-case "10.5.0"
+    jss-plugin-compose "10.5.0"
+    jss-plugin-default-unit "10.5.0"
+    jss-plugin-expand "10.5.0"
+    jss-plugin-extend "10.5.0"
+    jss-plugin-global "10.5.0"
+    jss-plugin-nested "10.5.0"
+    jss-plugin-props-sort "10.5.0"
+    jss-plugin-rule-value-function "10.5.0"
+    jss-plugin-rule-value-observable "10.5.0"
+    jss-plugin-template "10.5.0"
+    jss-plugin-vendor-prefixer "10.5.0"
+
+jss@10.5.0, jss@^10.0.0:
+  version "10.5.0"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/jss/-/jss-10.5.0.tgz#0c2de8a29874b2dc8162ab7f34ef6573a87d9dd3"
+  integrity sha1-DC3ooph0styBYqt/NO9lc6h9ndM=
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    csstype "^3.0.2"
+    indefinite-observable "^2.0.1"
+    is-in-browser "^1.1.3"
+    tiny-warning "^1.0.2"
+
 kind-of@^3.0.2, kind-of@^3.0.3, kind-of@^3.2.0:
   version "3.2.2"
   resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/kind-of/-/kind-of-3.2.2.tgz#31ea21a734bab9bbb0f32466d893aea51e4a3c64"
@@ -2931,7 +3352,7 @@ lodash@^4.17.15, lodash@^4.17.19:
   resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
   integrity sha1-tEqbYpe8tpjxxRo1RaKzs2jVnFI=
 
-loose-envify@^1.1.0:
+loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.2.0, loose-envify@^1.4.0:
   version "1.4.0"
   resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/loose-envify/-/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"
   integrity sha1-ce5R+nvkyuwaY4OffmgtgTLTDK8=
@@ -2978,6 +3399,11 @@ media-typer@0.3.0:
   version "0.3.0"
   resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
   integrity sha1-hxDXrwqmJvj/+hzgAWhUUmMlV0g=
+
+"memoize-one@>=3.1.1 <6":
+  version "5.1.1"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/memoize-one/-/memoize-one-5.1.1.tgz#047b6e3199b508eaec03504de71229b8eb1d75c0"
+  integrity sha1-BHtuMZm1COrsA1BN5xIpuOsddcA=
 
 memory-fs@^0.4.1:
   version "0.4.1"
@@ -3260,6 +3686,19 @@ object-copy@^0.1.0:
     define-property "^0.2.5"
     kind-of "^3.0.3"
 
+object-inspect@^1.8.0:
+  version "1.8.0"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/object-inspect/-/object-inspect-1.8.0.tgz#df807e5ecf53a609cc6bfe93eac3cc7be5b3a9d0"
+  integrity sha1-34B+Xs9TpgnMa/6T6sPMe+WzqdA=
+
+object-is@^1.0.1:
+  version "1.1.3"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/object-is/-/object-is-1.1.3.tgz#2e3b9e65560137455ee3bd62aec4d90a2ea1cc81"
+  integrity sha1-LjueZVYBN0Ve471irsTZCi6hzIE=
+  dependencies:
+    define-properties "^1.1.3"
+    es-abstract "^1.18.0-next.1"
+
 object-keys@^1.0.12, object-keys@^1.1.1:
   version "1.1.1"
   resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/object-keys/-/object-keys-1.1.1.tgz#1c47f272df277f3b1daf061677d9c82e2322c60e"
@@ -3272,7 +3711,7 @@ object-visit@^1.0.0:
   dependencies:
     isobject "^3.0.0"
 
-object.assign@^4.1.0:
+object.assign@^4.1.0, object.assign@^4.1.1:
   version "4.1.2"
   resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/object.assign/-/object.assign-4.1.2.tgz#0ed54a342eceb37b38ff76eb831a0e788cb63940"
   integrity sha1-DtVKNC7Os3s4/3brgxoOeIy2OUA=
@@ -3471,6 +3910,11 @@ pkg-dir@^4.2.0:
   dependencies:
     find-up "^4.0.0"
 
+popper.js@^1.14.4:
+  version "1.16.1"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/popper.js/-/popper.js-1.16.1.tgz#2a223cb3dc7b6213d740e40372be40de43e65b1b"
+  integrity sha1-KiI8s9x7YhPXQOQDcr5A3kPmWxs=
+
 posix-character-classes@^0.1.0:
   version "0.1.1"
   resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/posix-character-classes/-/posix-character-classes-0.1.1.tgz#01eac0fe3b5af71a2a6c02feabb8c1fef7e00eab"
@@ -3495,6 +3939,15 @@ promise-inflight@^1.0.1:
   version "1.0.1"
   resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/promise-inflight/-/promise-inflight-1.0.1.tgz#98472870bf228132fcbdd868129bad12c3c029e3"
   integrity sha1-mEcocL8igTL8vdhoEputEsPAKeM=
+
+prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2:
+  version "15.7.2"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
+  integrity sha1-UsQedbjIfnK52TYOAga5ncv/psU=
+  dependencies:
+    loose-envify "^1.4.0"
+    object-assign "^4.1.1"
+    react-is "^16.8.1"
 
 proxy-addr@~2.0.5:
   version "2.0.6"
@@ -3576,6 +4029,11 @@ querystring@0.2.0:
   resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/querystring/-/querystring-0.2.0.tgz#b209849203bb25df820da756e747005878521620"
   integrity sha1-sgmEkgO7Jd+CDadW50cAWHhSFiA=
 
+ramda@^0.23.0:
+  version "0.23.0"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/ramda/-/ramda-0.23.0.tgz#ccd13fff73497a93974e3e86327bfd87bd6e8e2b"
+  integrity sha1-zNE//3NJepOXTj6GMnv9h71ujis=
+
 randombytes@^2.0.0, randombytes@^2.0.1, randombytes@^2.0.5, randombytes@^2.1.0:
   version "2.1.0"
   resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/randombytes/-/randombytes-2.1.0.tgz#df6f84372f0270dc65cdf6291349ab7a473d4f2a"
@@ -3606,6 +4064,31 @@ raw-body@2.4.0:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
+react-collapse@^5.0.1:
+  version "5.1.0"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/react-collapse/-/react-collapse-5.1.0.tgz#36f69ecb0fe797f976aaf5e4f2b2c248d2760140"
+  integrity sha1-Nvaeyw/nl/l2qvXk8rLCSNJ2AUA=
+
+react-css-themr@^2.0.0:
+  version "2.1.2"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/react-css-themr/-/react-css-themr-2.1.2.tgz#e017514e471c232f43a754a55b49d81faf5dafb8"
+  integrity sha1-4BdRTkccIy9Dp1SlW0nYH69dr7g=
+  dependencies:
+    hoist-non-react-statics "^1.2.0"
+    invariant "^2.2.1"
+
+react-day-picker@7.3.0:
+  version "7.3.0"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/react-day-picker/-/react-day-picker-7.3.0.tgz#59b6d4e19d274650c79dcf49fbcce2637313467d"
+  integrity sha1-WbbU4Z0nRlDHnc9J+8ziY3MTRn0=
+  dependencies:
+    prop-types "^15.6.2"
+
+react-display-name@^0.2.4:
+  version "0.2.5"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/react-display-name/-/react-display-name-0.2.5.tgz#304c7cbfb59ee40389d436e1a822c17fe27936c6"
+  integrity sha1-MEx8v7We5AOJ1DbhqCLBf+J5NsY=
+
 react-dom@^17.0.1:
   version "17.0.1"
   resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/react-dom/-/react-dom-17.0.1.tgz#1de2560474ec9f0e334285662ede52dbc5426fc6"
@@ -3614,6 +4097,64 @@ react-dom@^17.0.1:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     scheduler "^0.20.1"
+
+react-input-mask@^2.0.4:
+  version "2.0.4"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/react-input-mask/-/react-input-mask-2.0.4.tgz#9ade5cf8196f4a856dbf010820fe75a795f3eb14"
+  integrity sha1-mt5c+BlvSoVtvwEIIP51p5Xz6xQ=
+  dependencies:
+    invariant "^2.2.4"
+    warning "^4.0.2"
+
+react-is@^16.7.0, react-is@^16.8.1:
+  version "16.13.1"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
+  integrity sha1-eJcppNw23imZ3BVt1sHZwYzqVqQ=
+
+react-jss@^10.0.0-alpha.6:
+  version "10.5.0"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/react-jss/-/react-jss-10.5.0.tgz#a3e47e5f024d85e2f59fbf691bf276e1849dfd7f"
+  integrity sha1-o+R+XwJNheL1n79pG/J24YSd/X8=
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    "@emotion/is-prop-valid" "^0.7.3"
+    css-jss "10.5.0"
+    hoist-non-react-statics "^3.2.0"
+    is-in-browser "^1.1.3"
+    jss "10.5.0"
+    jss-preset-default "10.5.0"
+    prop-types "^15.6.0"
+    shallow-equal "^1.2.0"
+    theming "^3.3.0"
+    tiny-warning "^1.0.2"
+
+react-popper@^1.3.6:
+  version "1.3.7"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/react-popper/-/react-popper-1.3.7.tgz#f6a3471362ef1f0d10a4963673789de1baca2324"
+  integrity sha1-9qNHE2LvHw0QpJY2c3id4brKIyQ=
+  dependencies:
+    "@babel/runtime" "^7.1.2"
+    create-react-context "^0.3.0"
+    deep-equal "^1.1.1"
+    popper.js "^1.14.4"
+    prop-types "^15.6.1"
+    typed-styles "^0.0.7"
+    warning "^4.0.2"
+
+react-swipeable@^5.5.1:
+  version "5.5.1"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/react-swipeable/-/react-swipeable-5.5.1.tgz#48ae6182deaf62f21d4b87469b60281dbd7c4a76"
+  integrity sha1-SK5hgt6vYvIdS4dGm2AoHb18SnY=
+  dependencies:
+    prop-types "^15.6.2"
+
+react-window@^1.8.5:
+  version "1.8.6"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/react-window/-/react-window-1.8.6.tgz#d011950ac643a994118632665aad0c6382e2a112"
+  integrity sha1-0BGVCsZDqZQRhjJmWq0MY4LioRI=
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    memoize-one ">=3.1.1 <6"
 
 react@^17.0.1:
   version "17.0.1"
@@ -3724,6 +4265,14 @@ regex-not@^1.0.0, regex-not@^1.0.2:
     extend-shallow "^3.0.2"
     safe-regex "^1.1.0"
 
+regexp.prototype.flags@^1.2.0:
+  version "1.3.0"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/regexp.prototype.flags/-/regexp.prototype.flags-1.3.0.tgz#7aba89b3c13a64509dabcf3ca8d9fbb9bdf5cb75"
+  integrity sha1-erqJs8E6ZFCdq888qNn7ub31y3U=
+  dependencies:
+    define-properties "^1.1.3"
+    es-abstract "^1.17.0-next.1"
+
 regexpu-core@^4.7.1:
   version "4.7.1"
   resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/regexpu-core/-/regexpu-core-4.7.1.tgz#2dea5a9a07233298fbf0db91fa9abc4c6e0f8ad6"
@@ -3784,6 +4333,11 @@ resolve-from@^5.0.0:
   version "5.0.0"
   resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/resolve-from/-/resolve-from-5.0.0.tgz#c35225843df8f776df21c57557bc087e9dfdfc69"
   integrity sha1-w1IlhD3493bfIcV1V7wIfp39/Gk=
+
+resolve-pathname@^3.0.0:
+  version "3.0.0"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/resolve-pathname/-/resolve-pathname-3.0.0.tgz#99d02224d3cf263689becbb393bc560313025dcd"
+  integrity sha1-mdAiJNPPJjaJvsuzk7xWAxMCXc0=
 
 resolve-url@^0.2.1:
   version "0.2.1"
@@ -3973,6 +4527,11 @@ sha.js@^2.4.0, sha.js@^2.4.8:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
 
+shallow-equal@^1.2.0:
+  version "1.2.1"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/shallow-equal/-/shallow-equal-1.2.1.tgz#4c16abfa56043aa20d050324efa68940b0da79da"
+  integrity sha1-TBar+lYEOqINBQMk76aJQLDaedo=
+
 shebang-command@^2.0.0:
   version "2.0.0"
   resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/shebang-command/-/shebang-command-2.0.0.tgz#ccd0af4f8835fbdc265b82461aaf0c36663f34ea"
@@ -4158,6 +4717,22 @@ string-width@^3.0.0, string-width@^3.1.0:
     is-fullwidth-code-point "^2.0.0"
     strip-ansi "^5.1.0"
 
+string.prototype.trimend@^1.0.1:
+  version "1.0.3"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/string.prototype.trimend/-/string.prototype.trimend-1.0.3.tgz#a22bd53cca5c7cf44d7c9d5c732118873d6cd18b"
+  integrity sha1-oivVPMpcfPRNfJ1ccyEYhz1s0Ys=
+  dependencies:
+    call-bind "^1.0.0"
+    define-properties "^1.1.3"
+
+string.prototype.trimstart@^1.0.1:
+  version "1.0.3"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/string.prototype.trimstart/-/string.prototype.trimstart-1.0.3.tgz#9b4cb590e123bb36564401d59824298de50fd5aa"
+  integrity sha1-m0y1kOEjuzZWRAHVmCQpjeUP1ao=
+  dependencies:
+    call-bind "^1.0.0"
+    define-properties "^1.1.3"
+
 string_decoder@^1.0.0, string_decoder@^1.1.1:
   version "1.3.0"
   resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/string_decoder/-/string_decoder-1.3.0.tgz#42f114594a46cf1a8e30b0a84f56c78c3edac21e"
@@ -4197,6 +4772,11 @@ supports-color@^6.1.0:
   integrity sha1-B2Srxpxj1ayELdSGfo0CXogN+PM=
   dependencies:
     has-flag "^3.0.0"
+
+symbol-observable@1.2.0, symbol-observable@^1.2.0:
+  version "1.2.0"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/symbol-observable/-/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
+  integrity sha1-wiaIrtTqs83C3+rLtWFmBWCgCAQ=
 
 table-layout@^1.0.1:
   version "1.0.1"
@@ -4244,6 +4824,16 @@ terser@^4.1.2:
     source-map "~0.6.1"
     source-map-support "~0.5.12"
 
+theming@^3.3.0:
+  version "3.3.0"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/theming/-/theming-3.3.0.tgz#dacabf04aa689edde35f1e1c117ec6de73fbf870"
+  integrity sha1-2sq/BKpont3jXx4cEX7G3nP7+HA=
+  dependencies:
+    hoist-non-react-statics "^3.3.0"
+    prop-types "^15.5.8"
+    react-display-name "^0.2.4"
+    tiny-warning "^1.0.2"
+
 through2@^2.0.0:
   version "2.0.5"
   resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/through2/-/through2-2.0.5.tgz#01c1e39eb31d07cb7d03a96a70823260b23132cd"
@@ -4258,6 +4848,16 @@ timers-browserify@^2.0.4:
   integrity sha1-RKRcEfv0B/NPl7zNFXfGUjYbAO4=
   dependencies:
     setimmediate "^1.0.4"
+
+tiny-invariant@^1.0.2:
+  version "1.1.0"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/tiny-invariant/-/tiny-invariant-1.1.0.tgz#634c5f8efdc27714b7f386c35e6760991d230875"
+  integrity sha1-Y0xfjv3CdxS384bDXmdgmR0jCHU=
+
+tiny-warning@^1.0.0, tiny-warning@^1.0.2:
+  version "1.0.3"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/tiny-warning/-/tiny-warning-1.0.3.tgz#94a30db453df4c643d0fd566060d60a875d84754"
+  integrity sha1-lKMNtFPfTGQ9D9VmBg1gqHXYR1Q=
 
 to-arraybuffer@^1.0.0:
   version "1.0.1"
@@ -4311,7 +4911,7 @@ tree-kill@^1.2.2:
   resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/tree-kill/-/tree-kill-1.2.2.tgz#4ca09a9092c88b73a7cdc5e8a01b507b0790a0cc"
   integrity sha1-TKCakJLIi3OnzcXooBtQeweQoMw=
 
-tslib@^1.9.0:
+tslib@^1.10.0, tslib@^1.11.1, tslib@^1.9.0, tslib@^1.9.3:
   version "1.14.1"
   resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha1-zy04vcNKE0vK8QkcQfZhni9nLQA=
@@ -4328,6 +4928,11 @@ type-is@~1.6.17, type-is@~1.6.18:
   dependencies:
     media-typer "0.3.0"
     mime-types "~2.1.24"
+
+typed-styles@^0.0.7:
+  version "0.0.7"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/typed-styles/-/typed-styles-0.0.7.tgz#93392a008794c4595119ff62dde6809dbc40a3d9"
+  integrity sha1-kzkqAIeUxFlRGf9i3eaAnbxAo9k=
 
 typedarray@^0.0.6:
   version "0.0.6"
@@ -4471,6 +5076,11 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
 
+value-equal@^1.0.1:
+  version "1.0.1"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/value-equal/-/value-equal-1.0.1.tgz#1e0b794c734c5c0cade179c437d356d931a34d6c"
+  integrity sha1-Hgt5THNMXAyt4XnEN9NW2TGjTWw=
+
 vary@~1.1.2:
   version "1.1.2"
   resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
@@ -4480,6 +5090,13 @@ vm-browserify@^1.0.1:
   version "1.1.2"
   resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/vm-browserify/-/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha1-eGQcSIuObKkadfUR56OzKobl3aA=
+
+warning@^4.0.2, warning@^4.0.3:
+  version "4.0.3"
+  resolved "https://artifactory.tutu.ru:443/artifactory/api/npm/npm-common/warning/-/warning-4.0.3.tgz#16e9e077eb8a86d6af7d64aa1e05fd85b4678ca3"
+  integrity sha1-Fungd+uKhtavfWSqHgX9hbRnjKM=
+  dependencies:
+    loose-envify "^1.0.0"
 
 watchpack-chokidar2@^2.0.1:
   version "2.0.1"

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { hydrate } from 'react-dom';
+import Text from '@tutu/order/lib/Text';
 
 const Header = (props) => {
 	const { hatHtml } = props;
@@ -19,12 +20,11 @@ const Header = (props) => {
 		[]
 	);
 
-	// const status = 0;
 	return (
 		<>
 			<div id="hat_fragment" dangerouslySetInnerHTML={hatHtml ? { __html: hatHtml } : undefined} />
 
-			<h1>District magic {status}</h1>
+			<Text header>District magic {status}</Text>
 		</>
 	);
 }

@@ -1,9 +1,10 @@
+const webpack = require('webpack');
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
 
-const {
-	SharedLibraryWebpackPlugin,
-} = require('@tinkoff/shared-library-webpack-plugin');
+// const {
+// 	SharedLibraryWebpackPlugin,
+// } = require('@tinkoff/shared-library-webpack-plugin');
 
 var entries = {
 	index: path.join(__dirname, './index.jsx'),
@@ -34,12 +35,16 @@ const clientConfig = {
 	},
 	module: modules,
 	plugins: [
-		new SharedLibraryWebpackPlugin({
-			namespace: '__shared__',
-			libs: [
-				{ name: 'react', chunkName: 'react.js', pattern: "react" },
-				{ name: 'react-dom', chunkName: 'react-dom.js', pattern: "react-dom" },
-			],
+		// new SharedLibraryWebpackPlugin({
+		// 	namespace: '__shared__',
+		// 	libs: [
+		// 		{ name: 'react', chunkName: 'react.js', pattern: "react" },
+		// 		{ name: 'react-dom', chunkName: 'react-dom.js', pattern: "react-dom" },
+		// 	],
+		// }),
+		new webpack.DllReferencePlugin({
+			context: '.',
+			manifest: require('../../../dist/hat/vendor-manifest.json'),
 		}),
 	],
 };

@@ -12,8 +12,7 @@ const hatServiceMeta = getServiceMeta('hat');
 const staticServiceMeta = getServiceMeta('static');
 
 const commonResources = [
-	{ type: 'js', src: `${staticServiceMeta.url}/composer/bf9db34d26b79087d9968b97e2cfa51d.js`, attributes: { async: true } },
-	{ type: 'js', src: `${staticServiceMeta.url}/composer/87eaabf0d22835088734847c34dd7d3c.js`, attributes: { async: true } },
+	{ type: 'js', src: `${staticServiceMeta.url}/hat/vendor.chunkhash.js`, attributes: { async: true } },
 	{ type: 'js', src: `${staticServiceMeta.url}/composer/index.js`, attributes: { async: true } },
 ];
 
