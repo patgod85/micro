@@ -12,7 +12,7 @@ module.exports = {
 	entry: entries,
 	devtool: 'source-map',
 	output: {
-		filename: '[name].[chunkhash].js',
+		filename: '[name].js',
 		path: path.resolve(__dirname, '../../../dist/hat'),
 		library: '[name]_lib',
 	},

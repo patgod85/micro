@@ -11,7 +11,8 @@
     "serve-composer": "node src/server/composer",
     "serve-hat": "node src/server/hat",
     "serve": "concurrently 'yarn serve-static' 'yarn serve-composer' 'yarn serve-hat'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+	"test": "echo \"Error: no test specified\" && exit 1",
+	"start": "yarn build && yarn serve"
   },
   "author": "tolstoguzov <tolstoguzov@tutu.ru>",
   "license": "ISC",
@@ -21,7 +22,8 @@
     "express": "^4.17.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "webpack-node-externals": "^2.5.2"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",

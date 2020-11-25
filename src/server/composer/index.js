@@ -6,14 +6,15 @@ const app = express()
 
 const PageComponent = require('../../../dist/composer/lib.node').Page;
 
+
 const composerServiceMeta = getServiceMeta('composer');
 const hatServiceMeta = getServiceMeta('hat');
 const staticServiceMeta = getServiceMeta('static');
 
 const commonResources = [
-	{ type: 'js', src: `${staticServiceMeta.url}/composer.js`, attributes: { async: true } },
-	{ type: 'js', src: `${staticServiceMeta.url}/bf9db34d26b79087d9968b97e2cfa51d.js`, attributes: { async: true } },
-	{ type: 'js', src: `${staticServiceMeta.url}/87eaabf0d22835088734847c34dd7d3c.js`, attributes: { async: true } },
+	{ type: 'js', src: `${staticServiceMeta.url}/composer/bf9db34d26b79087d9968b97e2cfa51d.js`, attributes: { async: true } },
+	{ type: 'js', src: `${staticServiceMeta.url}/composer/87eaabf0d22835088734847c34dd7d3c.js`, attributes: { async: true } },
+	{ type: 'js', src: `${staticServiceMeta.url}/composer/index.js`, attributes: { async: true } },
 ];
 
 app.get('/', async (req, res, next) => {
@@ -32,16 +33,15 @@ app.get('/', async (req, res, next) => {
 
 		const pageHtml = renderToString(PageComponent({ hatHtml: hatData.html }));
 
-		res.send(`
-  <html>
+		res.send(`<!DOCTYPE html><html>
  <body>
     <div id="root">
       ${pageHtml}
     </div>
 
     ${resouces.map(function (resource) {
-			return `<script type="text/javascript" src="${resource.src}" charset="utf-8"></script>`;
-		})}
+		return `<script type="text/javascript" src="${resource.src}" charset="utf-8"></script>`;
+	}).join('')}
  </body>
   `);
 	} catch (e) {

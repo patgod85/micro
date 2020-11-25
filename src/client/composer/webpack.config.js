@@ -1,4 +1,5 @@
 const path = require('path');
+const nodeExternals = require('webpack-node-externals');
 
 const {
 	SharedLibraryWebpackPlugin,
@@ -27,7 +28,7 @@ const clientConfig = {
 	entry: entries,
 	devtool: 'source-map',
 	output: {
-		filename: '[name].[chunkhash].js',
+		filename: '[name].js',
 		path: path.resolve(__dirname, '../../../dist/composer'),
 		library: '[name]_lib',
 	},
@@ -46,6 +47,7 @@ const clientConfig = {
 const serverConfig = {
 	target: 'node',
 	entry: entries,
+	mode: 'development',
 	output: {
 		path: path.resolve(__dirname, '../../../dist/composer'),
 		filename: 'lib.node.js',
@@ -53,6 +55,7 @@ const serverConfig = {
 		libraryTarget: 'commonjs'
 	},
 	module: modules,
+	externals: /react/i
 };
 
 module.exports = [serverConfig, clientConfig];

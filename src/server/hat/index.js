@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 	res.send(JSON.stringify({
 		"name": "hat",
 		resources: [
-			{ type: 'js', src: `${staticServiceMeta.url}/hat.js`, attributes: { async: true } },
+			{ type: 'js', src: `${staticServiceMeta.url}/hat/index.js`, attributes: { async: true } },
 		],
 		html: `
     <div id="hat_root">

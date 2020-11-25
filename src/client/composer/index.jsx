@@ -1,16 +1,40 @@
 import * as React from 'react';
+import { useEffect, useState } from 'react';
 import { hydrate } from 'react-dom';
 
+const Header = (props) => {
+	const { hatHtml } = props;
+
+	const [status, setStatus] = useState(0);
+
+	useEffect(
+		() => {
+			setTimeout(
+				() => {
+					setStatus(1);
+				},
+				3000
+			);
+		},
+		[]
+	);
+
+	// const status = 0;
+	return (
+		<>
+			<div id="hat_fragment" dangerouslySetInnerHTML={hatHtml ? { __html: hatHtml } : undefined} />
+
+			<h1>District magic {status}</h1>
+		</>
+	);
+}
 
 export const Page = (props) => {
 	const { hatHtml } = props;
 
 	return (
 		<div>
-			<div id="hat_fragment" dangerouslySetInnerHTML={hatHtml ? { __html: hatHtml } : undefined}>
-			</div>
-
-			<h1>District magic</h1>
+			<Header hatHtml={hatHtml} />
 
 			<div style={{ backgroundColor: 'green', color: 'white', }}>
 				Wish you were here
@@ -20,12 +44,12 @@ export const Page = (props) => {
 }
 
 const ready = () => {
-	const fragmentContainer = document.getElementById('hat_fragment');
+	const reactRoot = document.getElementById('root');
 
-	if (fragmentContainer) {
+	if (reactRoot) {
 		hydrate(
 			(<Page />),
-			fragmentContainer
+			reactRoot
 		);
 	}
 }

@@ -3,9 +3,22 @@ import { hydrate } from 'react-dom';
 
 
 const Hat = () => {
+	const [status, setStatus] = React.useState(0);
+	React.useEffect(
+		() => {
+			setTimeout(
+				() => {
+					setStatus(1);
+				},
+				1000
+			);
+		},
+		[]
+	);
+
 	return (
 		<div>
-			Шапка
+			Шапка ({status})
 		</div>
 	)
 }
