@@ -1,7 +1,7 @@
 const { default: Axios } = require('axios')
 const { renderToString } = require('react-dom/server')
 const express = require('express')
-const getServiceMeta = require('../services-mapping');
+const getServiceMeta = require('../../common/services-mapping');
 const app = express()
 
 const PageComponent = require('../../../dist/composer/lib.node').Page;
@@ -12,7 +12,8 @@ const hatServiceMeta = getServiceMeta('hat');
 const staticServiceMeta = getServiceMeta('static');
 
 const commonResources = [
-	{ type: 'js', src: `${staticServiceMeta.url}/hat/vendor.chunkhash.js`, attributes: { async: true } },
+	{ type: 'js', src: `${staticServiceMeta.url}/composer/fragments/vendor.js`, attributes: { async: true } },
+	{ type: 'js', src: `${staticServiceMeta.url}/composer/vendor.chunkhash.js`, attributes: { async: true } },
 	{ type: 'js', src: `${staticServiceMeta.url}/composer/index.js`, attributes: { async: true } },
 ];
 

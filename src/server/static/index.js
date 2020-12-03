@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const getServiceMeta = require('../services-mapping');
+const getServiceMeta = require('../../common/services-mapping');
 
 const staticServiceMeta = getServiceMeta('static');
 

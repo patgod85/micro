@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 
-const getServiceMeta = require('../services-mapping');
+const getServiceMeta = require('../../common/services-mapping');
 
 const staticServiceMeta = getServiceMeta('static');
 const hatServiceMeta = getServiceMeta('hat');
@@ -11,6 +11,10 @@ app.get('/meta', (req, res) => {
 	res.send(JSON.stringify({
 		name: "hat",
 		peerDependencies: ["react"],
+		resources: [
+			{ type: 'manifest', src: `${staticServiceMeta.url}/hat/vendor-manifest.json` },
+			{ type: 'vendors', src: `${staticServiceMeta.url}/hat/vendor.chunkhash.js` },
+		],
 	}))
 })
 

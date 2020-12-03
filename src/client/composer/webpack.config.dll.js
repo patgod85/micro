@@ -8,12 +8,14 @@ const vendorConfig = {
 		vendor: [
 			'react',
 			'react-dom',
+		],
+		order: [
 			'@tutu/order'
 		],
 	},
 
 	output: {
-		filename: '[name].chunkash.js',
+		filename: '[name].chunkhash.js',
 		path: path.resolve(__dirname, '../../../dist/composer'),
 		library: '[name]_lib',
 	},

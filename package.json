@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build-composer": "rimraf dist/composer/* && webpack -c src/client/composer/webpack.config.dll.js && webpack -c src/client/composer/webpack.config.js",
+    "build-composer": "sh ./bin/build-composer.sh",
     "build-hat": "rimraf dist/hat/* && webpack -c src/client/hat/webpack.config.dll.js && webpack -c src/client/hat/webpack.config.js",
     "build": "yarn build-hat && yarn build-composer",
     "serve-static": "node src/server/static",
