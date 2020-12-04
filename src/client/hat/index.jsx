@@ -1,38 +1,28 @@
 import * as React from 'react';
+import { RootProvider } from '@tutu/order';
 import { hydrate } from 'react-dom';
 
-
-const Hat = () => {
-	const [status, setStatus] = React.useState(0);
-	React.useEffect(
-		() => {
-			setTimeout(
-				() => {
-					setStatus(1);
-				},
-				1000
-			);
-		},
-		[]
-	);
-
-	return (
-		<div>
-			Шапка ({status})
-		</div>
-	)
-}
-
+import { Hat as HatComponent } from './component/Hat';
 
 const ready = () => {
 	const fragmentContainer = document.getElementById('hat_fragment');
 
 	if (fragmentContainer) {
 		hydrate(
-			(<Hat />),
+			(<HatComponent />),
 			fragmentContainer
 		);
 	}
 }
 
-document.addEventListener("DOMContentLoaded", ready);
+if (typeof window !== 'undefined') {
+	document.addEventListener("DOMContentLoaded", ready);
+}
+
+export const Fragment = () => {
+	return (
+		<RootProvider>
+			<HatComponent />
+		</RootProvider>
+	)
+};

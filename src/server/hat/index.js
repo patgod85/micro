@@ -1,5 +1,8 @@
 const express = require('express')
+const { renderToString } = require('react-dom/server')
 const app = express()
+
+const FragmentComponent = require('../../../dist/hat/lib.node').Fragment;
 
 const getServiceMeta = require('../../common/services-mapping');
 
@@ -48,12 +51,14 @@ app.get('/', (req, res) => {
 		[]
 	)
 
+	const fragmentHtml = renderToString(FragmentComponent());
+
 	res.send(JSON.stringify({
 		"name": "hat",
 		resources,
 		html: `
     <div id="hat_root">
-      ...Loading...
+      ${fragmentHtml}
     </div>
     `
 	}))
