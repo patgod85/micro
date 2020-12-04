@@ -44,9 +44,13 @@ const clientConfig = {
 		new SharedLibraryWebpackPlugin({
 			namespace: '__shared__',
 			libs: [
-				{ name: 'react', chunkName: 'react', chunkFilename: 'react' },
-				{ name: 'react-dom' },
-				{ name: '@tutu/order', pattern: '@tutu/order' },
+				{ name: 'react' },
+				{ name: 'react-dom'},
+				{ name: 'axios' },
+				{
+					name: '@tutu/order',
+					deps: ['react', 'react-dom']
+				},
 			],
 		}),
 		new AssetsPlugin({

@@ -1,7 +1,12 @@
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { hydrate } from 'react-dom';
+
+import { RootProvider } from '@tutu/order';
+
 import Text from '@tutu/order/lib/Text';
+import Spinner from '@tutu/order/lib/Spinner';
+import Container from '@tutu/order/lib/Container';
 
 const Header = (props) => {
 	const { hatHtml } = props;
@@ -33,13 +38,17 @@ export const Page = (props) => {
 	const { hatHtml } = props;
 
 	return (
-		<div>
-			<Header hatHtml={hatHtml} />
+		<RootProvider>
+			<Container>
+				<Header hatHtml={hatHtml} />
 
-			<div style={{ backgroundColor: 'green', color: 'white', }}>
-				Wish you were here
-            </div>
-		</div>
+				<div style={{ backgroundColor: 'green', color: 'white', }}>
+					Wish you were here
+				</div>
+
+				<Spinner />
+			</Container>
+		</RootProvider>
 	)
 }
 
