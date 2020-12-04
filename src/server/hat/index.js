@@ -20,11 +20,37 @@ app.get('/meta', (req, res) => {
 
 app.get('/', (req, res) => {
 	res.header('Content-Type', 'application/json');
+
+	const assets = require('../../../dist/hat/assets.json');
+
+	const { metadata } = assets;
+	const { entries } = metadata;
+
+	const resources = Object.keys(assets).reduce(
+		(acc, assetKey) => {
+			if (assetKey === 'metadata') {
+				return acc;
+			}
+			const asset = assets[assetKey];
+
+			const isSharedChunk = entries.indexOf(assetKey) === -1;
+
+			return [
+				...acc,
+				{
+					type: 'js',
+					name: assetKey,
+					chunkType: isSharedChunk ? 'shared' : 'main',
+					src: `${staticServiceMeta.url}/hat/${asset.js}`, attributes: { async: true }
+				}
+			];
+		},
+		[]
+	)
+
 	res.send(JSON.stringify({
 		"name": "hat",
-		resources: [
-			{ type: 'js', src: `${staticServiceMeta.url}/hat/index.js`, attributes: { async: true } },
-		],
+		resources,
 		html: `
     <div id="hat_root">
       ...Loading...

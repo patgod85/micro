@@ -1,9 +1,10 @@
+const AssetsPlugin = require('assets-webpack-plugin')
 const webpack = require('webpack');
 const path = require('path');
 
-// const {
-// 	SharedLibraryWebpackPlugin,
-// } = require('@tinkoff/shared-library-webpack-plugin');
+const {
+	SharedLibraryWebpackPlugin,
+} = require('@tinkoff/shared-library-webpack-plugin');
 
 var entries = {
 	index: path.join(__dirname, './index.jsx'),
@@ -17,6 +18,7 @@ const clientConfig = {
 		filename: '[name].js',
 		path: path.resolve(__dirname, '../../../dist/hat'),
 		library: '[name]_lib',
+		chunkFilename: 'chunks/[name].js'
 	},
 
 	module: {
@@ -34,17 +36,20 @@ const clientConfig = {
 		]
 	},
 	plugins: [
-		// new SharedLibraryWebpackPlugin({
-		// 	namespace: '__shared__',
-		// 	libs: [
-		// 		{ name: 'react', chunkName: 'react.js', pattern: "react" },
-		// 		{ name: 'react-dom', chunkName: 'react-dom.js', pattern: "react-dom" },
-		// 	],
-		// }),
-		new webpack.DllReferencePlugin({
-			context: '.',
-			manifest: require('../../../dist/hat/vendor-manifest.json'),
+		new SharedLibraryWebpackPlugin({
+			namespace: '__shared__',
+			libs: [
+				{ name: 'react' },
+				{ name: 'react-dom' },
+			],
 		}),
+		new AssetsPlugin({
+			filename: 'dist/hat/assets.json',
+			prettyPrint: true,
+			metadata: {
+				entries: Object.keys(entries)
+			}
+		 })
 	],
 }
 

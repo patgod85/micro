@@ -6,16 +6,11 @@ const app = express()
 
 const PageComponent = require('../../../dist/composer/lib.node').Page;
 
+const assets = require('../../../dist/composer/assets.json');
 
 const composerServiceMeta = getServiceMeta('composer');
 const hatServiceMeta = getServiceMeta('hat');
 const staticServiceMeta = getServiceMeta('static');
-
-const commonResources = [
-	{ type: 'js', src: `${staticServiceMeta.url}/composer/fragments/vendor.js`, attributes: { async: true } },
-	{ type: 'js', src: `${staticServiceMeta.url}/composer/vendor.chunkhash.js`, attributes: { async: true } },
-	{ type: 'js', src: `${staticServiceMeta.url}/composer/index.js`, attributes: { async: true } },
-];
 
 app.get('/', async (req, res, next) => {
 	try {
@@ -27,9 +22,42 @@ app.get('/', async (req, res, next) => {
 
 		const hatData = hatResponse.data;
 
+		const { metadata } = assets;
+		const { entries } = metadata;
+
+		const chunks = [];
+
+		const hostResources = Object.keys(assets).reduce(
+			(acc, assetKey) => {
+				if (assetKey === 'metadata') {
+					return acc;
+				}
+				const asset = assets[assetKey];
+
+				const isSharedChunk = entries.indexOf(assetKey) === -1;
+
+				if (isSharedChunk) {
+					chunks.push(assetKey);
+				}
+
+				return [
+					{
+						type: 'js',
+						src: `${staticServiceMeta.url}/composer/${asset.js}`, attributes: { async: true }
+					},
+					...acc,
+				];
+			},
+			[]
+		)
+
 		const resouces = []
-			.concat(commonResources)
-			.concat(hatData.resources);
+			.concat(hostResources)
+			.concat(hatData.resources.filter(resource => {
+				const { chunkType, name } = resource;
+
+				return chunkType === 'main' || chunks.indexOf(name) === -1;
+			}));
 
 		const pageHtml = renderToString(PageComponent({ hatHtml: hatData.html }));
 
