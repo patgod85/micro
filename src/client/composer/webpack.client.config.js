@@ -17,9 +17,12 @@ var entries = {
 	index: path.join(__dirname, './index.jsx'),
 };
 
+const vendorNodeModules = /node_modules\/(?!(@tutu))/;
+
 const jsxRule = {
 	test: /\.jsx?$/,
-	exclude: /node_modules/,
+	exclude: vendorNodeModules,
+
 	use: {
 		loader: "babel-loader",
 		options: {
@@ -28,10 +31,13 @@ const jsxRule = {
 	}
 }
 
-const resolve = { extensions: ['.js', '.jsx', '.css', '.json'] };
+const resolve = {
+	extensions: ['.js', '.jsx', '.css', '.json'],
+ };
 
 const clientConfig = {
 	entry: entries,
+	mode: 'production',
 	devtool: 'source-map',
 	output: {
 		filename: '[name]-[chunkhash].js',
@@ -92,26 +98,7 @@ const clientConfig = {
 	],
 };
 
-const serverConfig = {
-	target: 'node',
-	entry: entries,
-	mode: 'development',
-	output: {
-		path: path.resolve(__dirname, '../../../dist/composer'),
-		filename: 'lib.node.js',
-		library: '',
-		libraryTarget: 'commonjs'
-	},
-	module: {
-		rules: [
-			jsxRule,
-		],
-	},
-	resolve,
-	externals: /react/i
-};
 
 module.exports = [
-	serverConfig,
 	clientConfig,
 ]

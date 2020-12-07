@@ -1,2 +1,4 @@
 
-.wrapper { border: 1px solid green; }
+.wrapper { border: 3px solid green; padding: 30px 50px; }
+
+.icon { width: 16px; height: 16px; display: inline-block; }

@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import Icon from '@tutu/order/lib/Icon';
 import Text from '@tutu/order/lib/Text';
 import Spacer from '@tutu/order/lib/Spacer';
+import Alert from '@tutu/order/lib/Alert';
 import Spinner from '@tutu/order/lib/Spinner';
 
 import styles from './styles.css';
@@ -27,17 +28,18 @@ export const Content = () => {
 	return (
 		<div className={styles.wrapper}>
 
-			<Icon name={status} size="16" />
-
-			<Text header>District magic</Text>
+			<Text header>
+				<Icon name={status} size="16" className={styles.icon} />
+				Я контент страницы
+			</Text>
 
 			<Spacer>
 				<Spinner count={8} color="red" length={15} />
 			</Spacer>
 
-			<div style={{ backgroundColor: 'green', color: 'white', }}>
-				Wish you were here
-			</div>
+			<Alert type="warning">
+				А я какой-то блок на странице
+			</Alert>
 		</div>
 	);
 }

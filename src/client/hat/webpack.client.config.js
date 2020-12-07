@@ -1,4 +1,5 @@
 const AssetsPlugin = require('assets-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
 const path = require('path');
 
@@ -10,23 +11,22 @@ var entries = {
 	index: path.join(__dirname, './index.jsx'),
 };
 
-const modules = {
-	rules: [
-		{
-			test: /\.jsx?$/,
-			exclude: /node_modules/,
-			use: {
-				loader: "babel-loader",
-				options: {
-					presets: ['@babel/preset-env', '@babel/preset-react'],
-				}
-			}
+const jsxRule = {
+	test: /\.jsx?$/,
+	exclude: /node_modules/,
+	use: {
+		loader: "babel-loader",
+		options: {
+			presets: ['@babel/preset-env', '@babel/preset-react'],
 		}
-	]
+	}
 }
+
+// const modules =
 const resolve = { extensions: ['.js', '.jsx', '.css', '.json'] };
 
 const clientConfig = {
+	mode: 'production',
 	entry: entries,
 	devtool: 'source-map',
 	output: {
@@ -37,7 +37,31 @@ const clientConfig = {
 	},
 
 	resolve,
-	module: modules,
+	module: {
+		rules: [
+			jsxRule,
+			{
+				test: /\.css$/,
+				use: [
+					{
+						loader: MiniCssExtractPlugin.loader,
+					},
+					{
+						loader: 'css-loader',
+						options: {
+							modules: {
+								localIdentName: '[folder]__[local]__[hash:base64:5]',
+							},
+							sourceMap: true,
+							importLoaders: 1,
+							// onlyLocals: true, // Несовместимо с текущим MiniCssExtractPlugin
+							url: true,
+						},
+					},
+				],
+			},
+		]
+	},
 	plugins: [
 		new SharedLibraryWebpackPlugin({
 			namespace: '__shared__',
@@ -56,23 +80,13 @@ const clientConfig = {
 			metadata: {
 				entries: Object.keys(entries)
 			}
-		 })
+		 }),
+		new MiniCssExtractPlugin({
+			filename: 'css/[name].[chunkhash].css',
+			chunkFilename: '[id].[hash].css',
+		}),
 	],
 }
 
-const serverConfig = {
-	target: 'node',
-	entry: entries,
-	mode: 'development',
-	resolve,
-	output: {
-		path: path.resolve(__dirname, '../../../dist/hat'),
-		filename: 'lib.node.js',
-		library: '',
-		libraryTarget: 'commonjs'
-	},
-	module: modules,
-	externals: /react/i
-};
 
-module.exports = [serverConfig, clientConfig];
+module.exports = [clientConfig];

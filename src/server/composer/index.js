@@ -1,10 +1,12 @@
+require('regenerator-runtime/runtime');
+
 const { default: Axios } = require('axios')
 const { renderToString } = require('react-dom/server')
 const express = require('express')
 const getServiceMeta = require('../../common/services-mapping');
 const app = express()
 
-const PageComponent = require('../../../dist/composer/lib.node').Page;
+const PageComponent = require('../../client/composer').Page;
 
 const assets = require('../../../dist/composer/assets.json');
 
@@ -40,34 +42,63 @@ app.get('/', async (req, res, next) => {
 					chunks.push(assetKey);
 				}
 
-				return [
-					{
+				const js = [...acc.js];
+				const css = [...acc.css];
+
+				if (asset.js) {
+					js.unshift({
 						type: 'js',
-						src: `${staticServiceMeta.url}/composer/${asset.js}`, attributes: { async: true }
-					},
-					...acc,
-				];
+						src: `${staticServiceMeta.url}/composer/${asset.js}`,
+						attributes: { async: true },
+					})
+				}
+
+				if (asset.css) {
+					css.push({
+						type: 'css',
+						src: `${staticServiceMeta.url}/composer/${asset.css}`,
+					});
+				}
+
+				return { js, css };
 			},
-			[]
+			{
+				js: [],
+				css: [],
+			}
 		)
 
-		const resouces = []
-			.concat(hostResources)
+		const jsResouces = []
+			.concat(hostResources.js)
 			.concat(hatData.resources.filter(resource => {
-				const { chunkType, name } = resource;
+				const { chunkType, name, type } = resource;
 
-				return chunkType === 'main' || chunks.indexOf(name) === -1;
+				return type === 'js' && (chunkType === 'main' || chunks.indexOf(name) === -1);
+			}));
+
+		const cssResouces = []
+			.concat(hostResources.css)
+			.concat(hatData.resources.filter(resource => {
+				const { type } = resource;
+
+				return type === 'css';
 			}));
 
 		const pageHtml = renderToString(PageComponent({ hatHtml: hatData.html }));
 
 		res.send(`<!DOCTYPE html><html>
+<head>
+	<!-- Order.Styles -->
+    ${cssResouces.map(function (resource) {
+		return `<link rel="stylesheet" href="${resource.src}" />`;
+	}).join('')}
+</head>
  <body>
     <div id="root">
       ${pageHtml}
     </div>
 
-    ${resouces.map(function (resource) {
+    ${jsResouces.map(function (resource) {
 		return `<script type="text/javascript" src="${resource.src}" charset="utf-8"></script>`;
 	}).join('')}
  </body>

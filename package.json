@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "build-composer": "sh ./bin/build-composer.sh",
-    "build-hat": "rimraf dist/hat/* && webpack -c src/client/hat/webpack.config.js",
+    "build-hat": "sh ./bin/build-hat.sh",
     "build": "yarn build-hat && yarn build-composer",
     "serve-static": "node src/server/static",
-    "serve-composer": "node src/server/composer",
-    "serve-hat": "node src/server/hat",
+    "serve-composer": "node dist/composer/server.js",
+    "serve-hat": "node dist/hat/server.js",
     "serve": "concurrently 'yarn serve-static' 'yarn serve-composer' 'yarn serve-hat'",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "yarn build && yarn serve"
@@ -21,7 +21,8 @@
     "axios": "^0.21.0",
     "express": "^4.17.1",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "tslib": "^2.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
@@ -29,10 +30,10 @@
     "@babel/preset-react": "^7.12.5",
     "@tinkoff/shared-library-webpack-plugin": "^1.0.0",
     "assets-webpack-plugin": "^5.1.2",
-    "css-loader": "^5.0.1",
-    "mini-css-extract-plugin": "^0.9.0",
     "babel-loader": "^8.2.1",
     "concurrently": "^5.3.0",
+    "css-loader": "^5.0.1",
+    "mini-css-extract-plugin": "^0.9.0",
     "rimraf": "^3.0.2",
     "webpack": "4",
     "webpack-cli": "4",

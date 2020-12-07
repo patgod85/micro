@@ -2,7 +2,7 @@ const express = require('express')
 const { renderToString } = require('react-dom/server')
 const app = express()
 
-const FragmentComponent = require('../../../dist/hat/lib.node').Fragment;
+const FragmentComponent = require('../../client/hat').Fragment;
 
 const getServiceMeta = require('../../common/services-mapping');
 
@@ -34,19 +34,31 @@ app.get('/', (req, res) => {
 			if (assetKey === 'metadata') {
 				return acc;
 			}
-			const asset = assets[assetKey];
-
 			const isSharedChunk = entries.indexOf(assetKey) === -1;
 
-			return [
-				...acc,
-				{
+			const asset = assets[assetKey];
+
+			const result = [...acc];
+
+			if (asset.js) {
+				result.push({
 					type: 'js',
 					name: assetKey,
 					chunkType: isSharedChunk ? 'shared' : 'main',
-					src: `${staticServiceMeta.url}/hat/${asset.js}`, attributes: { async: true }
-				}
-			];
+					src: `${staticServiceMeta.url}/hat/${asset.js}`,
+					attributes: { async: true }
+				});
+			}
+
+			if (asset.css) {
+				result.push({
+					type: 'css',
+					src: `${staticServiceMeta.url}/hat/${asset.css}`,
+					attributes: {}
+				});
+			}
+
+			return result;
 		},
 		[]
 	)

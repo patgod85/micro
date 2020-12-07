@@ -2,6 +2,8 @@
 import * as React from 'react';
 
 import Container from '@tutu/order/lib/Container';
+import Row from '@tutu/order/lib/Row';
+import Column from '@tutu/order/lib/Column';
 
 import { Header } from '../Header';
 import { Content } from '../Content';
@@ -11,9 +13,17 @@ export const Page = (props) => {
 
 	return (
 		<Container>
-			<Header hatHtml={hatHtml} />
+			<Row>
+				<Column>
+					<Header hatHtml={hatHtml} />
+				</Column>
+			</Row>
 
-			<Content />
+			<Row>
+				<Column>
+					<Content />
+				</Column>
+			</Row>
 		</Container>
 	)
 }

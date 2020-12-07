@@ -3,13 +3,15 @@ import * as React from 'react';
 import Alert from '@tutu/order/lib/Alert';
 import Icon from '@tutu/order/lib/Icon';
 
+import styles from './styles.css';
+
 export const Hat = () => {
-	const [status, setStatus] = React.useState(0);
+	const [status, setStatus] = React.useState('waiting');
 	React.useEffect(
 		() => {
 			setTimeout(
 				() => {
-					setStatus(1);
+					setStatus('check');
 				},
 				1000
 			);
@@ -18,12 +20,10 @@ export const Hat = () => {
 	);
 
 	return (
-		<div>
-			Шапка ({status})
-
+		<div className={styles.wrapper}>
 			<Alert type="danger">
-				Хорошие новости! Сегодня пятница!
-				<Icon name="gender" />
+				<Icon name={status} size="16" className={styles.icon} />
+				Я шапка!
 			</Alert>
 		</div>
 	)
