@@ -19,9 +19,9 @@ if (typeof window !== 'undefined') {
 	document.addEventListener("DOMContentLoaded", ready);
 }
 
-export const Fragment = () => {
+export const Fragment = ({ sheetsRegistry }) => {
 	return (
-		<RootProvider>
+		<RootProvider registry={sheetsRegistry}>
 			<HatComponent />
 		</RootProvider>
 	)

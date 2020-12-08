@@ -19,6 +19,7 @@
   "dependencies": {
     "@tutu/order": "^3.27.2",
     "axios": "^0.21.0",
+    "csso": "^4.2.0",
     "express": "^4.17.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

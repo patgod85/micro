@@ -90,7 +90,8 @@ app.get('/', async (req, res, next) => {
 <head>
 	<!-- Order.Styles -->
     ${cssResouces.map(function (resource) {
-		return `<link rel="stylesheet" href="${resource.src}" />`;
+		const href = resource.src ? ` href="${resource.src}"` : '';
+		return `<link rel="stylesheet" ${href}>${resource.inlineCode ? resource.inlineCode : ''}</link>`;
 	}).join('')}
 </head>
  <body>

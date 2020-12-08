@@ -2,6 +2,9 @@ const express = require('express')
 const { renderToString } = require('react-dom/server')
 const app = express()
 
+import { SheetsRegistry } from '@tutu/order/provider';
+import * as csso from 'csso';
+
 const FragmentComponent = require('../../client/hat').Fragment;
 
 const getServiceMeta = require('../../common/services-mapping');
@@ -62,8 +65,16 @@ app.get('/', (req, res) => {
 		},
 		[]
 	)
+	const sheetsRegistry = new SheetsRegistry();
+	const fragmentHtml = renderToString(FragmentComponent(sheetsRegistry));
 
-	const fragmentHtml = renderToString(FragmentComponent());
+	const css = csso.minify(sheetsRegistry.toString()).css;
+
+	resources.push({
+		type: 'css',
+		attributes: {},
+		inlineCode: css,
+	});
 
 	res.send(JSON.stringify({
 		"name": "hat",
