@@ -1,5 +1,6 @@
 const AssetsPlugin = require('assets-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const URLImportPlugin = require("webpack-external-import/webpack");
 
 const fs = require('fs');
 const webpack = require('webpack');
@@ -72,18 +73,18 @@ const clientConfig = {
 		],
 	},
 	plugins: [
-		new SharedLibraryWebpackPlugin({
-			namespace: '__shared__',
-			libs: [
-				{ name: 'react' },
-				{ name: 'react-dom'},
-				{ name: 'axios' },
-				{
-					name: '@tutu/order',
-					deps: ['react', 'react-dom']
-				},
-			],
-		}),
+		// new SharedLibraryWebpackPlugin({
+		// 	namespace: '__shared__',
+		// 	libs: [
+		// 		{ name: 'react' },
+		// 		{ name: 'react-dom'},
+		// 		{ name: 'axios' },
+		// 		{
+		// 			name: '@tutu/order',
+		// 			deps: ['react', 'react-dom']
+		// 		},
+		// 	],
+		// }),
 		new AssetsPlugin({
 			filename: 'dist/composer/assets.json',
 			prettyPrint: true,
@@ -95,6 +96,9 @@ const clientConfig = {
 			filename: 'css/[name].[chunkhash].css',
 			chunkFilename: '[id].[hash].css',
 		}),
+		new URLImportPlugin({
+			manifestName: "composer"
+		})
 	],
 };
 

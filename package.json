@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
+    "kill-ports": "lsof -ti:3000 | xargs kill -9; lsof -ti:3010 | xargs kill -9; lsof -ti:5151 | xargs kill -9", "scripts": {
     "build-composer": "sh ./bin/build-composer.sh",
     "build-hat": "sh ./bin/build-hat.sh",
     "build": "yarn build-hat && yarn build-composer",
@@ -16,6 +16,9 @@
   },
   "author": "tolstoguzov <tolstoguzov@tutu.ru>",
   "license": "ISC",
+  "interleave": {
+    "src/client/hat/component/Hat/index.jsx": "Hat"
+  },
   "dependencies": {
     "@tutu/order": "^3.27.2",
     "axios": "^0.21.0",
@@ -23,7 +26,8 @@
     "express": "^4.17.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "tslib": "^2.0.3"
+    "tslib": "^2.0.3",
+    "webpack-external-import": "^2.2.4"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",

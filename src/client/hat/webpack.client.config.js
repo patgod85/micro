@@ -2,6 +2,7 @@ const AssetsPlugin = require('assets-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
 const path = require('path');
+const URLImportPlugin = require("webpack-external-import/webpack");
 
 const {
 	SharedLibraryWebpackPlugin,
@@ -63,17 +64,17 @@ const clientConfig = {
 		]
 	},
 	plugins: [
-		new SharedLibraryWebpackPlugin({
-			namespace: '__shared__',
-			libs: [
-				{ name: 'react' },
-				{ name: 'react-dom' },
-				{
-					name: '@tutu/order',
-					deps: ['react', 'react-dom']
-				},
-			],
-		}),
+		// new SharedLibraryWebpackPlugin({
+		// 	namespace: '__shared__',
+		// 	libs: [
+		// 		{ name: 'react' },
+		// 		{ name: 'react-dom' },
+		// 		{
+		// 			name: '@tutu/order',
+		// 			deps: ['react', 'react-dom']
+		// 		},
+		// 	],
+		// }),
 		new AssetsPlugin({
 			filename: 'dist/hat/assets.json',
 			prettyPrint: true,
@@ -85,6 +86,11 @@ const clientConfig = {
 			filename: 'css/[name].[chunkhash].css',
 			chunkFilename: '[id].[hash].css',
 		}),
+		new URLImportPlugin({
+			manifestName: "hat",
+			fileName: "importManifest.js",
+			publicPath: `//localhost:5151/hat/`,
+		})
 	],
 }
 

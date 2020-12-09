@@ -24,8 +24,8 @@ app.get('/', async (req, res, next) => {
 
 		const hatData = hatResponse.data;
 
-		const { metadata } = assets;
-		const { entries } = metadata;
+		// const { metadata } = assets;
+		// const { entries } = metadata;
 
 		const chunks = [];
 
@@ -36,7 +36,7 @@ app.get('/', async (req, res, next) => {
 				}
 				const asset = assets[assetKey];
 
-				const isSharedChunk = entries.indexOf(assetKey) === -1;
+				const isSharedChunk = false;//entries.indexOf(assetKey) === -1;
 
 				if (isSharedChunk) {
 					chunks.push(assetKey);
@@ -70,19 +70,19 @@ app.get('/', async (req, res, next) => {
 
 		const jsResouces = []
 			.concat(hostResources.js)
-			.concat(hatData.resources.filter(resource => {
-				const { chunkType, name, type } = resource;
+			// .concat(hatData.resources.filter(resource => {
+			// 	const { chunkType, name, type } = resource;
 
-				return type === 'js' && (chunkType === 'main' || chunks.indexOf(name) === -1);
-			}));
+			// 	return type === 'js' && (chunkType === 'main' || chunks.indexOf(name) === -1);
+			// }));
 
 		const cssResouces = []
 			.concat(hostResources.css)
-			.concat(hatData.resources.filter(resource => {
-				const { type } = resource;
+			// .concat(hatData.resources.filter(resource => {
+			// 	const { type } = resource;
 
-				return type === 'css';
-			}));
+			// 	return type === 'css';
+			// }));
 
 		const pageHtml = renderToString(PageComponent({ hatHtml: hatData.html }));
 
