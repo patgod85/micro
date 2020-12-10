@@ -90,7 +90,7 @@ app.get('/', async (req, res, next) => {
 <head>
 	<!-- Order.Styles -->
     ${cssResouces.map(function (resource) {
-		const href = resource.src ? ` href="${resource.src}"` : '';
+		const href = resource.src ? ` href="${resource.src.replace('auto/', '')}"` : '';
 		return `<link rel="stylesheet" ${href}>${resource.inlineCode ? resource.inlineCode : ''}</link>`;
 	}).join('')}
 </head>
@@ -100,7 +100,8 @@ app.get('/', async (req, res, next) => {
     </div>
 
     ${jsResouces.map(function (resource) {
-		return `<script type="text/javascript" src="${resource.src}" charset="utf-8"></script>`;
+		return `<script type="text/javascript" src="${resource.src.replace('auto/', '')}" charset="utf-8"></script>`;
+
 	}).join('')}
  </body>
   `);

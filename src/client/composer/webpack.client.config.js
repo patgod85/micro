@@ -1,17 +1,11 @@
 const AssetsPlugin = require('assets-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const fs = require('fs');
-const webpack = require('webpack');
 const path = require('path');
-const nodeExternals = require('webpack-node-externals');
-const { default: Axios } = require('axios')
+// const { ModuleFederationPlugin } = require("webpack").container;
 
 const getServiceMeta = require('../../common/services-mapping');
 
-const {
-	SharedLibraryWebpackPlugin,
-} = require('@tinkoff/shared-library-webpack-plugin');
 
 var entries = {
 	index: path.join(__dirname, './index.jsx'),
@@ -72,18 +66,13 @@ const clientConfig = {
 		],
 	},
 	plugins: [
-		new SharedLibraryWebpackPlugin({
-			namespace: '__shared__',
-			libs: [
-				{ name: 'react' },
-				{ name: 'react-dom'},
-				{ name: 'axios' },
-				{
-					name: '@tutu/order',
-					deps: ['react', 'react-dom']
-				},
-			],
-		}),
+		// new ModuleFederationPlugin({
+		// 	name: "composer",
+		// 	remotes: {
+		// 		hat: "hat@http://localhost:3010/remoteEntry.js",
+		// 	},
+		// 	shared: { react: { singleton: true }, "react-dom": { singleton: true } },
+		// }),
 		new AssetsPlugin({
 			filename: 'dist/composer/assets.json',
 			prettyPrint: true,

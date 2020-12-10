@@ -1,11 +1,7 @@
 const AssetsPlugin = require('assets-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const webpack = require('webpack');
 const path = require('path');
-
-const {
-	SharedLibraryWebpackPlugin,
-} = require('@tinkoff/shared-library-webpack-plugin');
+// const { ModuleFederationPlugin } = require("webpack").container;
 
 var entries = {
 	index: path.join(__dirname, './index.jsx'),
@@ -63,17 +59,6 @@ const clientConfig = {
 		]
 	},
 	plugins: [
-		new SharedLibraryWebpackPlugin({
-			namespace: '__shared__',
-			libs: [
-				{ name: 'react' },
-				{ name: 'react-dom' },
-				{
-					name: '@tutu/order',
-					deps: ['react', 'react-dom']
-				},
-			],
-		}),
 		new AssetsPlugin({
 			filename: 'dist/hat/assets.json',
 			prettyPrint: true,
