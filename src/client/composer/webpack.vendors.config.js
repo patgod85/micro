@@ -9,12 +9,8 @@ const { default: Axios } = require('axios')
 
 const getServiceMeta = require('../../common/services-mapping');
 
-const {
-	SharedLibraryWebpackPlugin,
-} = require('@tinkoff/shared-library-webpack-plugin');
-
 var entries = {
-	index: path.join(__dirname, './index.jsx'),
+	vendors: path.join(__dirname, './vendors.js'),
 };
 
 const vendorNodeModules = /node_modules\/(?!(@tutu))/;
@@ -35,12 +31,12 @@ const resolve = {
 	extensions: ['.js', '.jsx', '.css', '.json'],
  };
 
-const clientConfig = {
+const vendorConfig = {
 	entry: entries,
 	mode: 'production',
 	devtool: 'source-map',
 	output: {
-		filename: '[name]-[chunkhash].js',
+		filename: '[name].js',
 		path: path.resolve(__dirname, '../../../dist/composer'),
 		library: '[name]_lib',
 		chunkFilename: 'chunks/[name].js'
@@ -71,38 +67,11 @@ const clientConfig = {
 			},
 		],
 	},
-	externals: {
-		react: 'React',
-		'react-dom': 'ReactDOM'
-	},
 	plugins: [
-		// new SharedLibraryWebpackPlugin({
-		// 	namespace: '__shared__',
-		// 	libs: [
-		// 		{ name: 'react' },
-		// 		{ name: 'react-dom'},
-		// 		{ name: 'axios' },
-		// 		{
-		// 			name: '@tutu/order',
-		// 			deps: ['react', 'react-dom']
-		// 		},
-		// 	],
-		// }),
-		new AssetsPlugin({
-			filename: 'dist/composer/assets.json',
-			prettyPrint: true,
-			metadata: {
-				entries: Object.keys(entries)
-			}
-		}),
-		new MiniCssExtractPlugin({
-			filename: 'css/[name].[chunkhash].css',
-			chunkFilename: '[id].[hash].css',
-		}),
 	],
 };
 
 
 module.exports = [
-	clientConfig,
+	vendorConfig,
 ]

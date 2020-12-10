@@ -62,18 +62,22 @@ const clientConfig = {
 			},
 		]
 	},
+	externals: {
+		react: 'React',
+		'react-dom': 'ReactDOM'
+	},
 	plugins: [
-		new SharedLibraryWebpackPlugin({
-			namespace: '__shared__',
-			libs: [
-				{ name: 'react' },
-				{ name: 'react-dom' },
-				{
-					name: '@tutu/order',
-					deps: ['react', 'react-dom']
-				},
-			],
-		}),
+		// new SharedLibraryWebpackPlugin({
+		// 	namespace: '__shared__',
+		// 	libs: [
+		// 		{ name: 'react' },
+		// 		{ name: 'react-dom' },
+		// 		{
+		// 			name: '@tutu/order',
+		// 			deps: ['react', 'react-dom']
+		// 		},
+		// 	],
+		// }),
 		new AssetsPlugin({
 			filename: 'dist/hat/assets.json',
 			prettyPrint: true,

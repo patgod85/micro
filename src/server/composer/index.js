@@ -46,7 +46,7 @@ app.get('/', async (req, res, next) => {
 				const css = [...acc.css];
 
 				if (asset.js) {
-					js.unshift({
+					js.push({
 						type: 'js',
 						src: `${staticServiceMeta.url}/composer/${asset.js}`,
 						attributes: { async: true },
@@ -63,7 +63,8 @@ app.get('/', async (req, res, next) => {
 				return { js, css };
 			},
 			{
-				js: [],
+				js: [
+				],
 				css: [],
 			}
 		)
@@ -97,8 +98,10 @@ app.get('/', async (req, res, next) => {
  <body>
     <div id="root">
       ${pageHtml}
-    </div>
+	</div>
 
+	<script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
     ${jsResouces.map(function (resource) {
 		return `<script type="text/javascript" src="${resource.src}" charset="utf-8"></script>`;
 	}).join('')}
