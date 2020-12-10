@@ -90,6 +90,10 @@ const clientConfig = {
 			manifestName: "hat",
 			fileName: "importManifest.js",
 			publicPath: `//localhost:5151/hat/`,
+			useExternals: {
+				react: "react",
+				'react-dom': "react-dom"
+			}
 		})
 	],
 }

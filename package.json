@@ -17,7 +17,7 @@
   "author": "tolstoguzov <tolstoguzov@tutu.ru>",
   "license": "ISC",
   "interleave": {
-    "src/client/hat/component/Hat/index.jsx": "Hat"
+    "src/client/hat/component/Hat/content.jsx": "Hat"
   },
   "dependencies": {
     "@tutu/order": "^3.27.2",

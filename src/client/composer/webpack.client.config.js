@@ -97,7 +97,11 @@ const clientConfig = {
 			chunkFilename: '[id].[hash].css',
 		}),
 		new URLImportPlugin({
-			manifestName: "composer"
+			manifestName: "composer",
+			provideExternals: {
+				react: "react",
+				'react-dom': "react-dom"
+			}
 		})
 	],
 };
