@@ -66,6 +66,11 @@ const serverConfig = {
 		],
 	},
 	resolve,
+	plugins: [
+		new webpack.IgnorePlugin({
+			resourceRegExp: /hat\/Hat/,
+		})
+	]
 };
 
 module.exports = [

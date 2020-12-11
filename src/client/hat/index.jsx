@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { RootProvider } from '@tutu/order';
 import { hydrate } from 'react-dom';
 
@@ -26,3 +26,4 @@ export const Fragment = ({ sheetsRegistry }) => {
 		</RootProvider>
 	)
 };
+

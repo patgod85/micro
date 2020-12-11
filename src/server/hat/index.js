@@ -12,6 +12,19 @@ const getServiceMeta = require('../../common/services-mapping');
 const staticServiceMeta = getServiceMeta('static');
 const hatServiceMeta = getServiceMeta('hat');
 
+const addAsset = (acc, assets, fn) => {
+	if (Array.isArray(assets)) {
+		return [
+			...acc,
+			...assets.map(a => fn(a.replace('auto/', ''))),
+		];
+	}
+	return [
+		...acc,
+		fn(assets.replace('auto/', '')),
+	];
+}
+
 app.get('/meta', (req, res) => {
 	res.header('Content-Type', 'application/json');
 	res.send(JSON.stringify({
@@ -41,24 +54,25 @@ app.get('/', (req, res) => {
 
 			const asset = assets[assetKey];
 
-			const result = [...acc];
+			let result = [...acc];
+
 
 			if (asset.js) {
-				result.push({
+				result = addAsset(result, asset.js, a => ({
 					type: 'js',
 					name: assetKey,
 					chunkType: isSharedChunk ? 'shared' : 'main',
-					src: `${staticServiceMeta.url}/hat/${asset.js}`,
+					src: `${staticServiceMeta.url}/hat/${a}`,
 					attributes: { async: true }
-				});
+				}))
 			}
 
 			if (asset.css) {
-				result.push({
+				result = addAsset(result, asset.css, a => ({
 					type: 'css',
-					src: `${staticServiceMeta.url}/hat/${asset.css}`,
+					src: `${staticServiceMeta.url}/hat/${a}`,
 					attributes: {}
-				});
+				}));
 			}
 
 			return result;

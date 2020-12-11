@@ -1,8 +1,8 @@
 const AssetsPlugin = require('assets-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
+const deps = require("../../../package.json").dependencies;
 const path = require('path');
-// const { ModuleFederationPlugin } = require("webpack").container;
+const { ModuleFederationPlugin } = require("webpack").container;
 
 const getServiceMeta = require('../../common/services-mapping');
 
@@ -66,13 +66,26 @@ const clientConfig = {
 		],
 	},
 	plugins: [
-		// new ModuleFederationPlugin({
-		// 	name: "composer",
-		// 	remotes: {
-		// 		hat: "hat@http://localhost:3010/remoteEntry.js",
-		// 	},
-		// 	shared: { react: { singleton: true }, "react-dom": { singleton: true } },
-		// }),
+		new ModuleFederationPlugin({
+			name: "composer",
+			remotes: {
+				hat: "hat@http://localhost:5151/hat/remoteEntry.js",
+			},
+			shared: {
+				react: {
+					eager: true,
+					singleton: true,
+					requiredVersion: deps.react,
+				strictVersion: false,
+				},
+				"react-dom": {
+					eager: true,
+					singleton: true,
+					requiredVersion: deps["react-dom"],
+				strictVersion: false,
+				}
+			 },
+		}),
 		new AssetsPlugin({
 			filename: 'dist/composer/assets.json',
 			prettyPrint: true,

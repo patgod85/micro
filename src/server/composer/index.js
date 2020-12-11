@@ -14,6 +14,19 @@ const composerServiceMeta = getServiceMeta('composer');
 const hatServiceMeta = getServiceMeta('hat');
 const staticServiceMeta = getServiceMeta('static');
 
+const addAsset = (acc, assets, fn) => {
+	if (Array.isArray(assets)) {
+		return [
+			...assets.map(a => fn(a.replace('auto/', ''))),
+			...acc,
+		];
+	}
+	return [
+		fn(assets.replace('auto/', '')),
+		...acc,
+	];
+}
+
 app.get('/', async (req, res, next) => {
 	try {
 		const hatResponse = await Axios.get(hatServiceMeta.url);
@@ -42,22 +55,22 @@ app.get('/', async (req, res, next) => {
 					chunks.push(assetKey);
 				}
 
-				const js = [...acc.js];
-				const css = [...acc.css];
+				let js = [...acc.js];
+				let css = [...acc.css];
 
 				if (asset.js) {
-					js.unshift({
+					js = addAsset(js, asset.js, a => ({
 						type: 'js',
-						src: `${staticServiceMeta.url}/composer/${asset.js}`,
+						src: `${staticServiceMeta.url}/composer/${a}`,
 						attributes: { async: true },
-					})
+					}))
 				}
 
 				if (asset.css) {
-					css.push({
+					css = addAsset(css, asset.css, a => ({
 						type: 'css',
-						src: `${staticServiceMeta.url}/composer/${asset.css}`,
-					});
+						src: `${staticServiceMeta.url}/composer/${a}`,
+					}));
 				}
 
 				return { js, css };

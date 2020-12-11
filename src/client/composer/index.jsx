@@ -1,4 +1,5 @@
-import * as React from 'react';
+// Save the comment
+import React from 'react';
 import { hydrate } from 'react-dom';
 import { RootProvider } from '@tutu/order';
 

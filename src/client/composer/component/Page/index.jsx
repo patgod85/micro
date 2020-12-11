@@ -1,5 +1,5 @@
 
-import * as React from 'react';
+import React from 'react';
 
 import Container from '@tutu/order/lib/Container';
 import Row from '@tutu/order/lib/Row';

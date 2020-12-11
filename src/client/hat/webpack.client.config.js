@@ -1,7 +1,9 @@
 const AssetsPlugin = require('assets-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
-// const { ModuleFederationPlugin } = require("webpack").container;
+const deps = require("../../../package.json").dependencies;
+const { ModuleFederationPlugin } = require("webpack").container;
+const TerserPlugin = require("terser-webpack-plugin");
 
 var entries = {
 	index: path.join(__dirname, './index.jsx'),
@@ -58,7 +60,33 @@ const clientConfig = {
 			},
 		]
 	},
+	optimization: {
+		minimize: false,
+		minimizer: [new TerserPlugin()],
+	  },
 	plugins: [
+		new ModuleFederationPlugin({
+			name: "hat",
+			library: { type: "var", name: "hat" },
+			filename: "remoteEntry.js",
+			exposes: {
+				"./Hat": path.join(__dirname, './component/Hat/index.jsx'),
+			},
+			shared: {
+				react: {
+					// eager: true,
+					singleton: true,
+					// requiredVersion: deps.react,
+				// strictVersion: false,
+				},
+				"react-dom": {
+					// eager: true,
+					singleton: true,
+				// 	requiredVersion: deps["react-dom"],
+				// strictVersion: false,
+				}
+			 },
+		}),
 		new AssetsPlugin({
 			filename: 'dist/hat/assets.json',
 			prettyPrint: true,
