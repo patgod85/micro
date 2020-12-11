@@ -71,6 +71,11 @@ const clientConfig = {
 			},
 		],
 	},
+	optimization: {
+		splitChunks: {
+		  chunks: 'all',
+		},
+	  },
 	plugins: [
 		new SharedLibraryWebpackPlugin({
 			namespace: '__shared__',
