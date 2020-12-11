@@ -33,7 +33,8 @@ const clientConfig = {
 		filename: '[name].js',
 		path: path.resolve(__dirname, '../../../dist/hat'),
 		library: '[name]_lib',
-		chunkFilename: 'chunks/[name].js'
+		chunkFilename: 'chunks/[name].js',
+		publicPath: 'http://localhost:5151/hat/',
 	},
 
 	resolve,

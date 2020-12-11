@@ -1,5 +1,6 @@
 const AssetsPlugin = require('assets-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// const LoadablePlugin = require('@loadable/webpack-plugin')
 
 const fs = require('fs');
 const webpack = require('webpack');
@@ -66,6 +67,11 @@ const serverConfig = {
 		],
 	},
 	resolve,
+
+	plugins: [
+		// new LoadablePlugin()
+	],
+
 };
 
 module.exports = [

@@ -61,7 +61,7 @@ app.get('/', (req, res) => {
 					type: 'js',
 					name: assetKey,
 					chunkType: isSharedChunk ? 'shared' : 'main',
-					src: `${staticServiceMeta.url}/hat/${a}`,
+					src: a,
 					attributes: { async: true }
 				}))
 			}
@@ -69,7 +69,7 @@ app.get('/', (req, res) => {
 			if (asset.css) {
 				result = addAsset(result, asset.css, a => ({
 					type: 'css',
-					src: `${staticServiceMeta.url}/hat/${a}`,
+					src: a,
 					attributes: {}
 				}));
 			}

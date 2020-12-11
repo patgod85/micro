@@ -1,5 +1,6 @@
 const AssetsPlugin = require('assets-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const LoadablePlugin = require('@loadable/webpack-plugin')
 
 const fs = require('fs');
 const webpack = require('webpack');
@@ -43,7 +44,8 @@ const clientConfig = {
 		filename: '[name]-[chunkhash].js',
 		path: path.resolve(__dirname, '../../../dist/composer'),
 		library: '[name]_lib',
-		chunkFilename: 'chunks/[name].js'
+		chunkFilename: 'chunks/[name].js',
+		publicPath: 'http://localhost:5151/composer/',
 	},
 	resolve,
 	module: {
@@ -100,6 +102,7 @@ const clientConfig = {
 			filename: 'css/[name].[chunkhash].css',
 			chunkFilename: '[id].[hash].css',
 		}),
+		new LoadablePlugin(),
 	],
 };
 

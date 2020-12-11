@@ -17,6 +17,8 @@
   "author": "tolstoguzov <tolstoguzov@tutu.ru>",
   "license": "ISC",
   "dependencies": {
+    "@loadable/component": "^5.14.1",
+    "@loadable/server": "^5.14.0",
     "@tutu/order": "^3.27.2",
     "axios": "^0.21.0",
     "csso": "^4.2.0",
@@ -29,6 +31,8 @@
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-react": "^7.12.5",
+    "@loadable/babel-plugin": "^5.13.2",
+    "@loadable/webpack-plugin": "^5.14.0",
     "@tinkoff/shared-library-webpack-plugin": "^1.0.0",
     "assets-webpack-plugin": "^5.1.2",
     "babel-loader": "^8.2.1",
